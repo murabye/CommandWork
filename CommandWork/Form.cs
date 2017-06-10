@@ -26,5 +26,10 @@ namespace CommandWork
         {
             
         }
+
+        public static void Push(string exception)
+        {
+            
+        }
     }
 }
