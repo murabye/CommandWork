@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommandWork
 {
-    public class Data
+    public class Date
     {
         // ограничители, то есть минимальные и максимальные значения типов
         // для ограничения количества дней в отдельном месяце встроенная функция
@@ -53,7 +53,7 @@ namespace CommandWork
         }                      // возвращает день недели от данной даты
 
         // конструкторы
-        public Data()
+        public Date()
         {
             DateTime now = DateTime.Now;                // запомним дату сейчас
 
@@ -64,7 +64,7 @@ namespace CommandWork
             minute = now.Minute;
             second = now.Second;
         }                                // создание сегодняшнего дня
-        public Data(int day)
+        public Date(int day)
         {
             DateTime now = DateTime.Now;                // запомним дату сейчас
 
@@ -75,7 +75,7 @@ namespace CommandWork
             minute = now.Minute;
             second = now.Second;
         }                         // текущий месяц и год, заданный день
-        public Data(int day, int month)
+        public Date(int day, int month)
         {
             DateTime now = DateTime.Now;                // запомним дату сейчас
 
@@ -86,7 +86,7 @@ namespace CommandWork
             minute = now.Minute;
             second = now.Second;
         }              // заданный день и месяц, текущий год
-        public Data(int day, int month, int year)
+        public Date(int day, int month, int year)
         {
             DateTime now = DateTime.Now;                // запомним дату сейчас
             
@@ -97,7 +97,7 @@ namespace CommandWork
             minute = now.Minute;
             second = now.Second;
         }    // заданная дата
-        public Data(int day, int month, int year,       // полностью заданное время
+        public Date(int day, int month, int year,       // полностью заданное время
             int hour, int minute, int second)
         {
             this.month = month;

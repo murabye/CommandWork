@@ -9,8 +9,19 @@ namespace CommandWork
     public class TimeInterval
     {
         // Максимальная протяженность задаваемого периода
-        public const uint MaxTime = uint.MaxValue;
-        public int MaxType = 7;
+        public const uint MaxSeconds = uint.MaxValue;
+        public const uint MaxMinutes = MaxSeconds / 60;
+        public const uint MaxHours = MaxMinutes / 60;
+        public const uint MaxDays = MaxHours / 24;
+        public const uint MaxWeeks = MaxDays / 7;
+        public const uint MaxMonths = MaxDays / 30;
+
+        // сколько типов данных входных
+        public int MaxType = types.Length;
+
+        // какие типы
+        static string[] types = { " seconds", " minutes",
+            " hours", " days", " weeks", " months" };
 
         // поля
         private ulong num = 0;             // из данных полей хранить информацию
@@ -81,8 +92,7 @@ namespace CommandWork
         }
         public TimeInterval(ulong num, int type)
         {
-            // месяцев = 1, недель = 2, дней = 3, часов = 4, минут = 5, секунд = 6
-            int min = 1, max = 6;                   // максимальное и минимальное колва измерений
+            // месяцев = 6, недель = 5, дней = 4, часов = 3, минут = 2, секунд = 1
 
             this.num = num;
             this.type = type;
