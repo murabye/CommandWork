@@ -14,7 +14,7 @@ namespace CommandWork
         public const uint MaxHours = MaxMinutes / 60;
         public const uint MaxDays = MaxHours / 24;
         public const uint MaxWeeks = MaxDays / 7;
-        public const uint MaxMonths = MaxDays / 30;
+        public const uint MaxMonths = MaxDays / 30; 
 
         // сколько типов данных входных
         public int MaxType = types.Length;
@@ -27,10 +27,8 @@ namespace CommandWork
         private ulong num = 0;             // из данных полей хранить информацию
         private int type;
         
-        // публичная штука
-        // ОБЯЗАТЕЛЬНО при использовании этих свойств запрашивайте проверку
-        // на то, влезло ли число
         // для интервалов в месяце 30 дней
+        // количество всего 
         public ulong TotalMonths
         {
             get
@@ -83,6 +81,15 @@ namespace CommandWork
                 return TotalMinutes * 60;
             }
         }
+
+        // 2 года, 3 дня и 15 секунд - общая протяженность периода, иначе говоря
+        public int Years { get { return (int)TotalMonths/12; } }
+        public int Month { get { return (int) TotalMonths % 12; } }
+        public int Days { get { return (int) TotalDays % 30; } }
+        public int Hours { get { return (int) TotalHours % 24; } }
+        public int Minutes { get { return (int) TotalMinutes % 60; } }
+        public int Second { get { return (int) TotalSecond % 60; } }
+
 
         // конструкторы
         public TimeInterval()
