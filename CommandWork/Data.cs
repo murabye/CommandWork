@@ -10,20 +10,113 @@ namespace CommandWork
     {
         // ограничители, то есть минимальные и максимальные значения типов
         // для ограничения количества дней в отдельном месяце встроенная функция
-        public const int MinYear = 1583;                // корректно только с начала 
+        public const int MinYear = 1583;                // вычисления корректны только с начала 
         public const int MaxYear = 9999;                // григорианского календаря
         public const int MinTime = 0;
         public const int MaxTime = 59;
         public const int MinMonth = 1;
         public const int MaxMonth = 12;
+        public const int MinDay = 1;
 
-        // свойства, доступные только изнутри
-        private int month;                             // месяц даты
-        private int day;                               // день даты
-        private int year;                              // год
-        private int hour;                              // час
-        private int minute;                            // минута
-        private int second;                            // секунда
+        // свойства, доступные только изнутри, с проверкой на корректность согласно ограничениям
+        // при выходе за границы генерируется DataOutOfRangeException
+        private int month
+        {
+            get
+            {
+                return month;
+            }
+            set
+            {
+                if (value >= MinMonth && value <= MaxMonth)
+                    month = value;
+                else
+                {
+                    throw new DataOutOfRangeException("Выход за границы диапазона при задании месяца");
+                }
+            }
+        }                           // месяц даты
+        private int day
+        {
+            get
+            {
+                return day;
+            }
+            set
+            {
+                int maxDay = Data.DaysInMonth(month, year);
+                if (value >= MinDay && value <= maxDay)
+                    month = value;
+                else
+                {
+                    throw new DataOutOfRangeException("Выход за границы диапазона при задании дня");
+                }
+            }
+        }                             // день даты
+        private int year
+        {
+            get
+            {
+                return year;
+            }
+            set
+            {
+                if (value >= MinYear && value <= MaxYear)
+                    year = value;
+                else
+                {
+                    throw new DataOutOfRangeException("Выход за границы диапазона при задании года");
+                }
+            }
+        }                            // год
+        private int hour
+        {
+            get
+            {
+                return hour;
+            }
+            set
+            {
+                if (value >= MinTime && value <= MaxTime)
+                    hour = value;
+                else
+                {
+                    throw new DataOutOfRangeException("Выход за границы диапазона при задании часа");
+                }
+            }
+        }                            // час
+        private int minute
+        {
+            get
+            {
+                return minute;
+            }
+            set
+            {
+                if (value >= MinTime && value <= MaxTime)
+                    minute = value;
+                else
+                {
+                    throw new DataOutOfRangeException("Выход за границы диапазона при задании минуты");
+                }
+            }
+        }                          // минута
+        private int second
+        {
+            get
+            {
+                return second;
+            }
+            set
+            {
+                if (value >= MinTime && value <= MaxTime)
+                    second = value;
+                else
+                {
+                    throw new DataOutOfRangeException("Выход за границы диапазона при задании секунды");
+                }
+            }
+        }                          // секунда
 
         // свойства, доступные извне
         public int Month { get { return month; } }     // публичные свойства
@@ -52,13 +145,16 @@ namespace CommandWork
         }                      // возвращает день недели от данной даты
 
         // конструкторы
+        // ПРАВИЛО:
+        // день всегда устанавливается ПОСЛЕ года и месяца, чтобы сработала проверка
+        // на допустимость
         public Data()
         {
             DateTime now = DateTime.Now;                // запомним дату сейчас
 
             month = now.Month;
-            day = now.Day;
             year = now.Year;
+            day = now.Day;
             hour = now.Hour;
             minute = now.Minute;
             second = now.Second;
@@ -68,8 +164,8 @@ namespace CommandWork
             DateTime now = DateTime.Now;                // запомним дату сейчас
 
             month = now.Month;
-            this.day = day;
             year = now.Year;
+            this.day = day;
             hour = now.Hour;
             minute = now.Minute;
             second = now.Second;
@@ -79,8 +175,8 @@ namespace CommandWork
             DateTime now = DateTime.Now;                // запомним дату сейчас
 
             this.month = month;
-            this.day = day;
             year = now.Year;
+            this.day = day;
             hour = now.Hour;
             minute = now.Minute;
             second = now.Second;
@@ -90,8 +186,8 @@ namespace CommandWork
             DateTime now = DateTime.Now;                // запомним дату сейчас
             
             this.month = month;
-            this.day = day;
             this.year = year;
+            this.day = day;
             hour = now.Hour;
             minute = now.Minute;
             second = now.Second;
@@ -100,8 +196,8 @@ namespace CommandWork
             int hour, int minute, int second)
         {
             this.month = month;
-            this.day = day;
             this.year = year;
+            this.day = day;
             this.hour = hour;
             this.minute = minute;
             this.second = second;

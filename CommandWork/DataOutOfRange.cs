@@ -4,19 +4,19 @@
 // свой класс ошибок для выхода за допустимые границы даты
 namespace CommandWork
 {
-    class DataOutOfRange : ArgumentOutOfRangeException
+    class DataOutOfRangeException : ArgumentOutOfRangeException
     {
 
-        public DataOutOfRange()
+        public DataOutOfRangeException()
         {
         }
 
-        public DataOutOfRange(string message)
+        public DataOutOfRangeException(string message)
             : base(message)
         {
         }
 
-        public DataOutOfRange(string message, Exception inner)
+        public DataOutOfRangeException(string message, Exception inner)
             : base(message, inner)
         {
         }
