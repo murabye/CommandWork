@@ -103,7 +103,6 @@ namespace CommandWork
         {
             string[] types = {" seconds"," minutes"," hours"," days", " weeks", " months" };
 
-
             return num + types[type];
         }
     }
