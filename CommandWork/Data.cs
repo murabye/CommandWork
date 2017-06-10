@@ -18,105 +18,13 @@ namespace CommandWork
         public const int MaxMonth = 12;
         public const int MinDay = 1;
 
-        // свойства, доступные только изнутри, с проверкой на корректность согласно ограничениям
-        // при выходе за границы генерируется DataOutOfRangeException
-        private int month
-        {
-            get
-            {
-                return month;
-            }
-            set
-            {
-                if (value >= MinMonth && value <= MaxMonth)
-                    month = value;
-                else
-                {
-                    throw new DataOutOfRangeException("Выход за границы диапазона при задании месяца");
-                }
-            }
-        }                           // месяц даты
-        private int day
-        {
-            get
-            {
-                return day;
-            }
-            set
-            {
-                int maxDay = Data.DaysInMonth(month, year);
-                if (value >= MinDay && value <= maxDay)
-                    month = value;
-                else
-                {
-                    throw new DataOutOfRangeException("Выход за границы диапазона при задании дня");
-                }
-            }
-        }                             // день даты
-        private int year
-        {
-            get
-            {
-                return year;
-            }
-            set
-            {
-                if (value >= MinYear && value <= MaxYear)
-                    year = value;
-                else
-                {
-                    throw new DataOutOfRangeException("Выход за границы диапазона при задании года");
-                }
-            }
-        }                            // год
-        private int hour
-        {
-            get
-            {
-                return hour;
-            }
-            set
-            {
-                if (value >= MinTime && value <= MaxTime)
-                    hour = value;
-                else
-                {
-                    throw new DataOutOfRangeException("Выход за границы диапазона при задании часа");
-                }
-            }
-        }                            // час
-        private int minute
-        {
-            get
-            {
-                return minute;
-            }
-            set
-            {
-                if (value >= MinTime && value <= MaxTime)
-                    minute = value;
-                else
-                {
-                    throw new DataOutOfRangeException("Выход за границы диапазона при задании минуты");
-                }
-            }
-        }                          // минута
-        private int second
-        {
-            get
-            {
-                return second;
-            }
-            set
-            {
-                if (value >= MinTime && value <= MaxTime)
-                    second = value;
-                else
-                {
-                    throw new DataOutOfRangeException("Выход за границы диапазона при задании секунды");
-                }
-            }
-        }                          // секунда
+        // свойства, доступные только изнутри
+        private int month;                           // месяц даты
+        private int day;                             // день даты
+        private int year;                            // год
+        private int hour;                            // час
+        private int minute;                          // минута
+        private int second;                          // секунда
 
         // свойства, доступные извне
         public int Month { get { return month; } }     // публичные свойства
@@ -145,9 +53,6 @@ namespace CommandWork
         }                      // возвращает день недели от данной даты
 
         // конструкторы
-        // ПРАВИЛО:
-        // день всегда устанавливается ПОСЛЕ года и месяца, чтобы сработала проверка
-        // на допустимость
         public Data()
         {
             DateTime now = DateTime.Now;                // запомним дату сейчас
@@ -233,7 +138,5 @@ namespace CommandWork
                    " " + Hour + ":" + Minute + ": " + Second;   // время
 
         }           // обычно ToString возвращает российский формат
-
-        // операции
     }
 }
