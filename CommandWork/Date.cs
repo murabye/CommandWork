@@ -133,9 +133,9 @@ namespace CommandWork
         // перегрузки
         public override string ToString()
         {
-            // дата DD.MM.YYYY, время HH:MI: SS
+            // дата DD.MM.YYYY, время HH:MI:SS
             return Day + "." + Month + "." + Year +             // дата
-                   " " + Hour + ":" + Minute + ": " + Second;   // время
+                   " " + Hour + ":" + Minute + ":" + Second;   // время
 
         }           // обычно ToString возвращает российский формат
     }
