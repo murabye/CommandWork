@@ -233,5 +233,7 @@ namespace CommandWork
                    " " + Hour + ":" + Minute + ": " + Second;   // время
 
         }           // обычно ToString возвращает российский формат
+
+        // операции
     }
 }
