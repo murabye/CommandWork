@@ -8,64 +8,91 @@ namespace CommandWork
 {
     public class TimeInterval
     {
-        // для всех total используется ulong - целое число без знака
-        // соответственно ограничители, константы
+        // Максимальная протяженность задаваемого периода
         public const uint MaxTime = uint.MaxValue;
-        public const uint MinTime = uint.MinValue;
+        public int MaxType = 7;
 
-        // поля внутренние
-        private Data _start;
-        private Data _end;
-
-        // свойства, доступные извне
-        // учтены такие особенности, как:
-        //       високосные годы;
-        //       месяцы с 30, 31, 28 и 29 днями
-        public int Years;                            // данная группа свойств
-        public int Month;                            // предоставляет не полное кол-во
-        public int Days;                             // чего-либо в периоде
-        public int Hours;                            // а именно часть, то есть
-        public int Minutes;                          // пример: 2 года 1 месяц 7 дней
-        public int Second;                           // а не 2 года, 25 месяцев и тд
-
-        public ulong TotalYears;                     // данная группа свойств
-        public ulong TotalMonth;                     // предоставляет
-        public ulong TotalDays;                      // полное количество чего-либо
-        public ulong TotalHours;                      
-        public ulong TotalMinutes;                   
-        public ulong TotalSecond;                    
+        // поля
+        private ulong num = 0;             // из данных полей хранить информацию
+        private int type;
         
+        // публичная штука
+        // ОБЯЗАТЕЛЬНО при использовании этих свойств запрашивайте проверку
+        // на то, влезло ли число
+        public ulong TotalMonths
+        {
+            get
+            {
+                if (type == 5) return num;
+                return TotalDays / 30;
+            }
+        }
+        public ulong TotalWeeks
+        {
+            get
+            {
+                if (type == 4) return num;
+                return TotalDays / 7;
+            }
+        }
+        public ulong TotalDays
+        {
+            get
+            {
+                if (type < 3) return TotalHours / 24;
+                if (type == 3) return num;
+                else if (type == 4) return TotalWeeks * 7;
+                return TotalMonths * 30;
+            }
+        }      
+        public ulong TotalHours
+        {
+            get
+            {
+                if (type < 2) return TotalMinutes / 60;
+                if (type == 2) return num;
+                return TotalDays * 24;
+            }
+        }
+        public ulong TotalMinutes
+        {
+            get
+            {
+                if (type < 1) return TotalSecond / 60; 
+                if (type == 1) return num;
+                return TotalHours * 60;
+            }
+        }
+        public ulong TotalSecond
+        {
+            get
+            {
+                if (type == 0) return num;
+                return TotalMinutes * 60;
+            }
+        }
+
         // конструкторы
         public TimeInterval()
         {
-            _start = new Data();
-            _end = new Data();
-        }                     // начало и конец - дата сейчас
-        public TimeInterval(Data start)
+            type = 0;
+            num = 0;
+        }
+        public TimeInterval(ulong num, int type)
         {
-            _start = start;
-            _end = new Data();
-        }           // конец - дата в данный момент
-        public TimeInterval(Data start, Data end)
-        {
-            _start = start;
-            _end = end;
-        } // полностью заданный интервал
+            // месяцев = 1, недель = 2, дней = 3, часов = 4, минут = 5, секунд = 6
+            int min = 1, max = 6;                   // максимальное и минимальное колва измерений
 
-        // статические методы
-
-        // методы
-
+            this.num = num;
+            this.type = type;
+        }
+        
         // перегрузки
         public override string ToString()
         {
-            // возвращает интервал вида 2:3:8 3-8-17
-            // где сначала возврачается в дате, затем в часах
+            string[] types = {" seconds"," minutes"," hours"," days", " weeks", " months" };
 
-            return Years + ":" + Month + ":" + Days + 
-                " " + Hours + "-" + Minutes + "-" + Second;
+            return num + types[type];
         }
-
-        // операторы
     }
 }
