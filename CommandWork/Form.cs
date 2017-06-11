@@ -31,5 +31,10 @@ namespace CommandWork
         {
             
         }
+
+        public static void Push(List<Protocol> protocols)
+        {
+            
+        }
     }
 }

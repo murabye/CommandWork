@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CommandWork
 {
-    class Protocol
+    public class Protocol
     {
         // поля
         private string _arg1, _arg2;

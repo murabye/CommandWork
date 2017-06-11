@@ -32,7 +32,6 @@ namespace CommandWork
             // выслать интервал
             Form.Push(new TimeInterval(seconds, 0));
         }
-
         public static void Push(Date arg1, TimeInterval arg2, bool isPlus)
         {
             int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
@@ -62,6 +61,10 @@ namespace CommandWork
 
             Form.Push(new Date(year, month, day, hour, minute, second));
         }
+        public static void Push(List<Protocol> protocols)
+        {
+            Form.Push(protocols);
+        }
 
         static int PlusST(int arg1, int arg2, int maxtime, int first, ref int next)
         {
@@ -85,8 +88,7 @@ namespace CommandWork
             }
             return ans;
         }
-
-
+        
         static int MinusST(int arg1, int arg2, int maxtime, int first, ref int next)
         {
             // считает для времени

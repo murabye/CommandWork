@@ -29,5 +29,10 @@ namespace CommandWork
             
         }
 
+        public static void Push(string path)
+        {
+            // для протокола, читает и формирует его, на выходе List<Protocol>
+
+        }
     }
 }
