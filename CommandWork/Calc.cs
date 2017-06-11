@@ -13,7 +13,6 @@ namespace CommandWork
         {
             return false;
         }
-
         public static bool CheckTimeInterval(string arg, int type)
         {
             return true;
@@ -21,14 +20,13 @@ namespace CommandWork
 
         public static void PushDate(string arg1, string arg2, bool isAmericanArg1, bool isAmericanArg2)
         {
-            
+            // здесь также нужно завести протокол сеанса
         }
-
         public static void PushTimeInterval(string arg1, string arg2, bool isAmericanArg1, bool isPlus)
         {
-            
-        }
+            // здесь также нужно завести протокол сеанса
 
+        }
         public static void Push(string path)
         {
             // для протокола, читает и формирует его, на выходе List<Protocol>

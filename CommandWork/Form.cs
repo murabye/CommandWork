@@ -17,12 +17,12 @@ namespace CommandWork
             InitializeComponent();
         }
 
-        public static void Push(Date ans)
+        public static void Push(Protocol cur, Date ans)
         {
             
         }
 
-        public static void Push(TimeInterval ans)
+        public static void Push(Protocol cur, TimeInterval ans)
         {
             
         }

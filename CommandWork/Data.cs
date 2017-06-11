@@ -8,7 +8,7 @@ namespace CommandWork
 {
     class Data
     {
-        public static void Push(Date arg1, Date arg2)
+        public static void Push(Protocol cur, Date arg1, Date arg2)
         {
             // нахождение разницы между датами
             ulong yearDiff =(ulong)(arg1.Year - arg2.Year);
@@ -29,13 +29,19 @@ namespace CommandWork
                 dayDiff*60*60*24 + monthDiff * 60 * 60 * 24 * 30 + 
                 yearDiff * 60 * 60 * 24 * 30 * 12;
 
+            var ans = new TimeInterval(seconds, 0);
+
+            // записать в протокол
+            cur.AddOperation("Вычитание 2 дат", ans.ToString());
+
             // выслать интервал
-            Form.Push(new TimeInterval(seconds, 0));
+            Form.Push(cur, ans);
         }
-        public static void Push(Date arg1, TimeInterval arg2, bool isPlus)
+        public static void Push(Protocol cur, Date arg1, TimeInterval arg2, bool isPlus)
         {
             int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;
-            
+            Date ans;
+
             if (isPlus)
             {
                 second = PlusST(arg1.Second, arg2.Second, 60, second, ref month);
@@ -45,6 +51,9 @@ namespace CommandWork
                 day = PlusSD(arg1.Day, arg2.Days, 30, day, ref month);
                 month = PlusSD(arg1.Month, arg2.Month, 12, month, ref year);
                 year += arg1.Year + arg2.Years;
+
+                ans = new Date(year, month, day, hour, minute, second);
+                cur.AddOperation("Сложение даты и временного интервала", ans.ToString());
             }
             else
             {
@@ -57,9 +66,13 @@ namespace CommandWork
                 day = MinusSD(arg1.Day, arg2.Days, 30, day, ref month);
                 month = MinusSD(arg1.Month, arg2.Month, 12, month, ref year);
                 year += arg1.Year - arg2.Years;
-            }
 
-            Form.Push(new Date(year, month, day, hour, minute, second));
+                ans = new Date(year, month, day, hour, minute, second);
+                cur.AddOperation("Вычитание даты и временного интервала", ans.ToString());
+            }
+            
+
+            Form.Push(cur, ans);
         }
         public static void Push(List<Protocol> protocols)
         {
