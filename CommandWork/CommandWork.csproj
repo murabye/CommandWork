@@ -49,7 +49,6 @@
     <Compile Include="Calc.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="Date.cs" />
-    <Compile Include="DataOutOfRangeException.cs" />
     <Compile Include="Form.cs">
       <SubType>Form</SubType>
     </Compile>
