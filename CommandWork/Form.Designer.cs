@@ -413,7 +413,7 @@
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
             this.Name = "Form";
-            this.Text = "Form1";
+            this.Text = "Калькулятор дат";
             this.ResumeLayout(false);
             this.PerformLayout();
 
