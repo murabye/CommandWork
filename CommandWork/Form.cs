@@ -8,14 +8,14 @@ namespace CommandWork
     public partial class Form : System.Windows.Forms.Form
     {
         private bool _ok, _ok2, _ok01, _ok02, _ok03, _ok04, _ok05, _ok06, _ok07, _ok08, _ok09, _ok10, _ok11, _ok12;
-        public int index;
-        public bool isAmerican; // переменная для формата
-        public string[] date;
+        public int index; // выбранное задание
+        public bool isAmerican; // переменная для формата даты
+        public static string[] date, date2; // основная дата и дата для промежутка
+        public string months, days;
 
         public Form()
         {
             InitializeComponent();
-            //comboBox1.SelectedIndexChanged += maskedTextBox_TextChanged;
             maskedTextBox1.TextChanged += maskedTextBox1_tc1;
             maskedTextBox2.TextChanged += maskedTextBox2_tc1;
             maskedTextBox3.TextChanged += maskedTextBox3_tc1;
@@ -92,7 +92,7 @@ namespace CommandWork
                 textBox1.Enabled = false; // недоступен ввод месяцев
                 textBox2.Enabled = false; // недоступен ввод дней
             }
-            else if (index == 1 || comboBox1.SelectedIndex == 2) // для прибавления или вычитания месяцев/дней
+            else if (index == 1 || index == 2) // для прибавления или вычитания месяцев/дней
             {
                 maskedTextBox7.Enabled = false; // недоступен ввод даты 2
                 maskedTextBox8.Enabled = maskedTextBox9.Enabled = maskedTextBox10.Enabled =
@@ -126,7 +126,7 @@ namespace CommandWork
         {
             _ok = _ok01 && _ok02 && _ok03 && _ok04 && _ok05;
             _ok2 = _ok06 && _ok07 && _ok08 && _ok09 && _ok10 && _ok11 && _ok12;
-            if (index == 1 || comboBox1.SelectedIndex == 2) // для прибавления или вычитания месяцев/дней
+            if (index == 1 || index == 2) // для прибавления или вычитания месяцев/дней
             {
                 button1.Enabled = _ok;
             }
@@ -223,15 +223,6 @@ namespace CommandWork
             button1.Enabled = _ok;
         }
 
-        //private void CheckValue()
-        //{
-        //    //Calc.CheckDate()
-        //    if (maskedTextBox1.MaskFull) return;
-        //    maskedTextBox1.Clear();
-        //    toolTip1.ToolTipTitle = "Неверный ввод";
-        //    toolTip1.Show("Номер маршрута должен вводиться в формате '000'", maskedTextBox1, 100, 15, 1000);
-        //}
-        
         #endregion
 
         public void Clear()
@@ -250,6 +241,67 @@ namespace CommandWork
             maskedTextBox12.Clear();
             textBox1.Clear();
             textBox2.Clear();
+        }
+
+        public void Check(bool isAmerican) // проверка корректности ввода
+        {
+            bool ok, ok2; // показатели корректности ввода 
+            date = new string[6];
+            if (!isAmerican)
+            {
+                date[0] = maskedTextBox1.Text;
+                date[1] = maskedTextBox2.Text;
+            }
+            else
+            {
+                date[1] = maskedTextBox1.Text;
+                date[2] = maskedTextBox2.Text;
+            }
+            date[2] = maskedTextBox3.Text;
+            date[3] = maskedTextBox4.Text;
+            date[4] = maskedTextBox5.Text;
+            date[5] = maskedTextBox6.Text;
+            ok = Calc.CheckDate(date, isAmerican);
+            button1.Enabled = ok && index == 0; // если дата верна - кнопка доступна
+            switch (index)
+            {
+                case 1:
+                    months = textBox1.Text; // для прибавления или вычитания месяцев
+                    ok = Calc.CheckMonthsDates(months);
+                    button1.Enabled = ok;
+                    break;
+                case 2:
+                    days = textBox2.Text; // для прибавления или вычитания дней
+                    ok = Calc.CheckMonthsDates(days);
+                    button1.Enabled = ok;
+                    break;
+                default:
+                    if (index != 0 && index != 1 && index != 2) // для запросов
+                    {
+                        if (!isAmerican)
+                        {
+                            date2[0] = maskedTextBox7.Text;
+                            date2[1] = maskedTextBox8.Text;
+                        }
+                        else
+                        {
+                            date2[1] = maskedTextBox7.Text;
+                            date2[2] = maskedTextBox8.Text;
+                        }
+                        date2[2] = maskedTextBox9.Text;
+                        date2[3] = maskedTextBox10.Text;
+                        date2[4] = maskedTextBox11.Text;
+                        date2[5] = maskedTextBox12.Text;
+                    }
+                    ok2 = Calc.CheckDate(date2, isAmerican);
+                    button1.Enabled = ok2 && ok;
+                    break;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }
