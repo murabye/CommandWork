@@ -61,7 +61,16 @@ namespace CommandWork.Properties {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на :.
+        ///   Ищет локализованную строку, похожую на ..
+        /// </summary>
+        internal static string Form_radioButton1_CheckedChanged__ {
+            get {
+                return ResourceManager.GetString("Form_radioButton1_CheckedChanged__", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на -.
         /// </summary>
         internal static string Form_radioButton2_CheckedChanged__ {
             get {

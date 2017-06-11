@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // button1
@@ -78,9 +80,11 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(195, 181);
+            this.textBox2.MaxLength = 10;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(63, 20);
             this.textBox2.TabIndex = 102;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label16
             // 
@@ -95,9 +99,11 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(69, 181);
+            this.textBox1.MaxLength = 10;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(63, 20);
             this.textBox1.TabIndex = 100;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label15
             // 
@@ -119,12 +125,24 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Перевод даты в другой формат",
+            "Вычитание месяцев/дней из даты",
+            "Сложение месяцев/дней с датой",
+            "Запрос количества дней в интервале",
+            "Запрос количества недель в интервале",
+            "Запрос количества месяцев в интервале",
+            "Запрос количества часов в интервале",
+            "Запрос количества минут в интервале",
+            "Запрос количества секунд в интервале"});
             this.comboBox1.Location = new System.Drawing.Point(15, 66);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(260, 21);
             this.comboBox1.TabIndex = 97;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -156,47 +174,57 @@
             // maskedTextBox7
             // 
             this.maskedTextBox7.Enabled = false;
-            this.maskedTextBox7.Location = new System.Drawing.Point(254, 140);
+            this.maskedTextBox7.Location = new System.Drawing.Point(28, 140);
             this.maskedTextBox7.Mask = "00";
             this.maskedTextBox7.Name = "maskedTextBox7";
             this.maskedTextBox7.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox7.TabIndex = 93;
+            this.maskedTextBox7.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox7.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox8
             // 
             this.maskedTextBox8.Enabled = false;
-            this.maskedTextBox8.Location = new System.Drawing.Point(211, 140);
+            this.maskedTextBox8.Location = new System.Drawing.Point(71, 140);
             this.maskedTextBox8.Mask = "00";
             this.maskedTextBox8.Name = "maskedTextBox8";
             this.maskedTextBox8.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox8.TabIndex = 92;
+            this.maskedTextBox8.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox8.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox9
             // 
             this.maskedTextBox9.Enabled = false;
-            this.maskedTextBox9.Location = new System.Drawing.Point(168, 140);
+            this.maskedTextBox9.Location = new System.Drawing.Point(114, 140);
             this.maskedTextBox9.Mask = "00";
             this.maskedTextBox9.Name = "maskedTextBox9";
             this.maskedTextBox9.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox9.TabIndex = 91;
+            this.maskedTextBox9.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox9.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox10
             // 
             this.maskedTextBox10.Enabled = false;
-            this.maskedTextBox10.Location = new System.Drawing.Point(114, 140);
+            this.maskedTextBox10.Location = new System.Drawing.Point(168, 140);
             this.maskedTextBox10.Mask = "00";
             this.maskedTextBox10.Name = "maskedTextBox10";
             this.maskedTextBox10.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox10.TabIndex = 90;
+            this.maskedTextBox10.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox10.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox11
             // 
             this.maskedTextBox11.Enabled = false;
-            this.maskedTextBox11.Location = new System.Drawing.Point(71, 140);
+            this.maskedTextBox11.Location = new System.Drawing.Point(211, 140);
             this.maskedTextBox11.Mask = "00";
             this.maskedTextBox11.Name = "maskedTextBox11";
             this.maskedTextBox11.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox11.TabIndex = 89;
+            this.maskedTextBox11.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox11.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label10
             // 
@@ -219,11 +247,13 @@
             // maskedTextBox12
             // 
             this.maskedTextBox12.Enabled = false;
-            this.maskedTextBox12.Location = new System.Drawing.Point(28, 140);
+            this.maskedTextBox12.Location = new System.Drawing.Point(254, 140);
             this.maskedTextBox12.Mask = "00";
             this.maskedTextBox12.Name = "maskedTextBox12";
             this.maskedTextBox12.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox12.TabIndex = 86;
+            this.maskedTextBox12.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox12.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label12
             // 
@@ -260,6 +290,8 @@
             this.maskedTextBox6.Name = "maskedTextBox6";
             this.maskedTextBox6.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox6.TabIndex = 82;
+            this.maskedTextBox6.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox6.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox5
             // 
@@ -269,6 +301,8 @@
             this.maskedTextBox5.Name = "maskedTextBox5";
             this.maskedTextBox5.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox5.TabIndex = 81;
+            this.maskedTextBox5.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox5.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox4
             // 
@@ -278,6 +312,8 @@
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox4.TabIndex = 80;
+            this.maskedTextBox4.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox4.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox3
             // 
@@ -287,6 +323,8 @@
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox3.TabIndex = 79;
+            this.maskedTextBox3.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox3.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // maskedTextBox2
             // 
@@ -296,6 +334,8 @@
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox2.TabIndex = 78;
+            this.maskedTextBox2.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label5
             // 
@@ -323,6 +363,8 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(21, 20);
             this.maskedTextBox1.TabIndex = 75;
+            this.maskedTextBox1.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.maskedTextBox1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label3
             // 
@@ -352,6 +394,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Американский";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -363,6 +406,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Российский";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // label1
             // 
@@ -455,6 +499,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
