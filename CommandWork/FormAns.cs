@@ -23,7 +23,7 @@ namespace CommandWork
             var index = comboBox1.SelectedIndex;
             if (index != -1) // если выбрано хоть что-то
                 textBox1.Enabled = true;
-            else if (index == 0) // для перевода
+            if (index == 0) // для перевода
             {
                 
             }

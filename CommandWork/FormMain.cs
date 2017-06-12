@@ -33,35 +33,37 @@ namespace CommandWork
 
         public static void Push(Date ans)
         {
-            
+
         }
 
         public static void Push(TimeInterval ans)
         {
-            
+
         }
 
         public static void Push(string exception)
         {
-            
+
         }
 
         #endregion
 
         #region RadioButtonClick
 
-        private void radioButton1_CheckedChanged(object sender, EventArgs e) // действия при клике на "Российский формат"
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+            // действия при клике на "Российский формат"
         {
-            Clear();
+            Clear(); // очистка всех ранее введенных в поля данных
             IsAmerican = false;
             comboBox1.Enabled = true; // доступен выбор действий
             label4.Text = Resources.Form_radioButton1_CheckedChanged__; // в ресурсах точка
             label10.Text = label5.Text = label9.Text = label4.Text; // разделитель - точка
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e) // действия при клике на "Американский формат"
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+            // действия при клике на "Американский формат"
         {
-            Clear();
+            Clear(); // очистка всех ранее введенных в поля данных
             IsAmerican = true;
             comboBox1.Enabled = true; // доступен выбор действий
             label4.Text = Resources.Form_radioButton2_CheckedChanged__; // в ресурсах тире
@@ -75,7 +77,7 @@ namespace CommandWork
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) // выбор выполняемого задания
         {
             Clear();
-            Index = comboBox1.SelectedIndex;
+            Index = comboBox1.SelectedIndex; // индекс выбранного задания
             if (Index != -1) // если выбрано хоть что-то
             {
                 maskedTextBox1.Enabled = true; // доступен ввод даты 1
@@ -124,7 +126,28 @@ namespace CommandWork
 
         private void maskedTextBox_TextChanged(object sender, EventArgs e) // проверка наличия ввода в maskedtextbox
         {
-
+            switch (Index)
+            {
+                case 0:
+                case 1:
+                    if (maskedTextBox1.MaskFull && maskedTextBox2.MaskFull && maskedTextBox3.MaskFull &&
+                        maskedTextBox4.MaskFull && maskedTextBox5.MaskFull && maskedTextBox6.MaskFull &&
+                        textBox1.TextLength != 0) Check(IsAmerican);
+                    break;
+                case 2:
+                case 3:
+                    if (maskedTextBox1.MaskFull && maskedTextBox2.MaskFull && maskedTextBox3.MaskFull &&
+                        maskedTextBox4.MaskFull && maskedTextBox5.MaskFull && maskedTextBox6.MaskFull &&
+                        textBox2.TextLength != 0) Check(IsAmerican);
+                    break;
+                case 4:
+                    if (maskedTextBox1.MaskFull && maskedTextBox2.MaskFull && maskedTextBox3.MaskFull &&
+                        maskedTextBox4.MaskFull && maskedTextBox5.MaskFull && maskedTextBox6.MaskFull &&
+                        maskedTextBox7.MaskFull && maskedTextBox8.MaskFull && maskedTextBox9.MaskFull &&
+                        maskedTextBox10.MaskFull && maskedTextBox11.MaskFull && maskedTextBox12.MaskFull)
+                        Check(IsAmerican);
+                    break;
+            }
         }
 
         private void Boomcheck(MaskedTextBox mtb, int lenght) // проверка длины ввода
@@ -137,30 +160,7 @@ namespace CommandWork
                 toolTip1.Show("Введите больше символов", mtb, 100, 15, 1000);
             }
             else if (value.Length == lenght)
-            {
                 mtb.BackColor = Color.White;
-                switch (Index)
-                {
-                    case 0:
-                    case 1:
-                        if (maskedTextBox1.MaskFull && maskedTextBox2.MaskFull && maskedTextBox3.MaskFull &&
-                            maskedTextBox4.MaskFull && maskedTextBox5.MaskFull && maskedTextBox6.MaskFull &&
-                            textBox1.TextLength != 0) Check(IsAmerican);
-                        break;
-                    case 2:
-                    case 3:
-                        if (maskedTextBox1.MaskFull && maskedTextBox2.MaskFull && maskedTextBox3.MaskFull &&
-                            maskedTextBox4.MaskFull && maskedTextBox5.MaskFull && maskedTextBox6.MaskFull &&
-                            textBox2.TextLength != 0) Check(IsAmerican);
-                        break;
-                    case 4:
-                        if (maskedTextBox1.MaskFull && maskedTextBox2.MaskFull && maskedTextBox3.MaskFull &&
-                            maskedTextBox4.MaskFull && maskedTextBox5.MaskFull && maskedTextBox6.MaskFull &&
-                            maskedTextBox7.MaskFull && maskedTextBox8.MaskFull && maskedTextBox9.MaskFull &&
-                            maskedTextBox10.MaskFull && maskedTextBox11.MaskFull && maskedTextBox12.MaskFull) Check(IsAmerican);
-                        break;
-                }
-            }
         }
 
         private void MaskedTextBoxLenght2(object sender, EventArgs e)
@@ -172,14 +172,16 @@ namespace CommandWork
         {
             Boomcheck(maskedTextBox1, 4);
         }
-        
+
         private void maskedTextBox_Click(object sender, EventArgs e)
         {
-            var thismtb = (MaskedTextBox)sender;
+            var thismtb = (MaskedTextBox) sender;
             thismtb.Clear();
         }
 
         #endregion
+
+        #region Other
 
         public void Clear()
         {
@@ -250,7 +252,10 @@ namespace CommandWork
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            FormAns f2 = new FormAns();
+            f2.ShowDialog();
         }
+
+        #endregion
     }
 }

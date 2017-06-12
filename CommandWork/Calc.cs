@@ -14,7 +14,7 @@ namespace CommandWork
         // number в этой функции можно извлечь и кинуть Варе, но лучше ее спроси, в каком формате она это принимает для подсчета
         // кстати тебе скорее всего не понадобится isAmerican, потому что массивы с датами я кидаю в одинаковом русском формате 
         // если будешь убирать у себя это - скажи мне
-        public static bool CheckDate(string[] date1, bool isAmerican) // тут проверить на 30 февраля
+        public static bool CheckDate(string[] date, bool isAmerican) // тут проверить на 30 февраля
         {
             return false;
         }
