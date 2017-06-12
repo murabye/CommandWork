@@ -13,22 +13,38 @@ namespace CommandWork
         // поля
         private string[] _arg1, _arg2;
         private string _path;
-        private bool _isPlus;
+        private bool _isPlus, _isAmerican;
         private Dictionary<string, string> _operations;
 
         // публичные свойства
+        // переделать, когда будет ясно, как передается аргумент
         public string Input
         {
             get
             {
-                var ans = String.Join(":", _arg1);
-                //var ans = _isPlus ? _arg1 + '+' + _arg2 : _arg1 + '-' + _arg2;
+                var ans = "";
+                
+                if (_isAmerican)
+                {
+                    ans += _arg1[0] + "-" + _arg1[1] + "-" + _arg1[2] + " " + _arg1[3] + ":" + _arg1[4] + ":" +
+                           _arg1[5];
+                    ans += _isPlus ? "+" : "-";
+                }
+                else
+                {
+                    ans += _arg1[0] + "." + _arg1[1] + "." + _arg1[2] + " " + _arg1[3] + ":" + _arg1[4] + ":" +
+                           _arg1[5];
+                    ans += _isPlus ? "+" : "-";
+
+                }
+
+
                 return ans;
             }
         }
         public Dictionary<string, string> Operations { get { return _operations; } }
 
-        // конструктор
+        // конструктор, переделать когда будет ясен ввод
         public Protocol(string path, string[] arg1, string[] arg2, bool isPlus)
         {
             // чистый протокол
@@ -55,7 +71,24 @@ namespace CommandWork
         public void Finish()
         {
             var flow = new StreamWriter(_path, true);
-            
+            /* тип записи:
+             *
+             * Начало записи:
+             * Входные данные 
+             * Операция - результат (заголовок)
+             * Операция - результат
+             * ... 
+             * Операция - результат
+             * Конец записи.
+             * 
+             * */
+
+            flow.WriteLine("Начало записи: ");
+            flow.WriteLine(Input);
+            flow.WriteLine("Операция - Результат");
+            foreach (var operation in _operations)
+                flow.WriteLine(operation.Key + " - " + operation.Value);
+            flow.WriteLine("Конец записи.");
 
         }
     }
