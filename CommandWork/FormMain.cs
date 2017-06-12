@@ -7,10 +7,10 @@ namespace CommandWork
 {
     public partial class FormMain : System.Windows.Forms.Form
     {
-        public int Index; // выбранное задание
-        public bool IsAmerican; // переменная для формата даты
+        public static int Index; // выбранное задание
+        public static bool IsAmerican; // переменная для формата даты
         public static string[] Date, Date2; // основная дата и дата для промежутка
-        public string Months, Days;
+        public static string Months, Days;
 
         public FormMain()
         {
@@ -233,7 +233,7 @@ namespace CommandWork
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FormAns f2 = new FormAns();
+            FormAns f2 = new FormAns(IsAmerican);
             f2.ShowDialog();
         }
 
