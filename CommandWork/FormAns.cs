@@ -17,6 +17,8 @@ namespace CommandWork
         public static bool IsAmerican;
         public static int Index;
         public readonly int Variant = FormMain.Index;
+        private static Date Answer;
+        private static TimeInterval Answer2;
         public FormAns(bool status)
         {
             InitializeComponent();
@@ -46,11 +48,12 @@ namespace CommandWork
         public static void Push(Date ans)
         {
             Result = !IsAmerican ? ans.ToString() : ans.ToAmerican();
+            Answer = ans;
         }
 
         public static void Push(TimeInterval ans)
-        { 
-
+        {
+            Answer2 = ans;
         }
 
         public static void Push(string exception)
@@ -64,6 +67,33 @@ namespace CommandWork
             Index = comboBox1.SelectedIndex;
             if (Index != -1) // если выбрано хоть что-то
                 textBox1.Enabled = true;
+            if (Variant != 4 && Index == 0)
+            {
+                Result = IsAmerican ? Answer.ToString() : Answer.ToAmerican();
+            }
+            if (Variant == 4)
+                switch (Index)
+                {
+                    case 0:
+                        Result = Answer2.TotalDays.ToString();
+                        break;
+                    case 1:
+                        Result = Answer2.TotalWeeks.ToString();
+                        break;
+                    case 2:
+                        Result = Answer2.TotalMonths.ToString();
+                        break;
+                    case 3:
+                        Result = Answer2.TotalHours.ToString();
+                        break;
+                    case 4:
+                        Result = Answer2.TotalMinutes.ToString();
+                        break;
+                    case 5:
+                        Result = Answer2.TotalSecond.ToString();
+                        break;
+                }
+            textBox1.Text = Result;
         }
     }
 }
