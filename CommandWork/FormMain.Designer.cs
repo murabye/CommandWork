@@ -81,7 +81,7 @@
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(195, 181);
-            this.textBox2.MaxLength = 10;
+            this.textBox2.MaxLength = 30000000;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(63, 20);
             this.textBox2.TabIndex = 102;
@@ -100,7 +100,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(69, 181);
-            this.textBox1.MaxLength = 10;
+            this.textBox1.MaxLength = 30000000;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(63, 20);
             this.textBox1.TabIndex = 100;
