@@ -5,7 +5,7 @@ using CommandWork.Properties;
 
 namespace CommandWork
 {
-    public partial class Form : System.Windows.Forms.Form
+    public partial class FormMain : System.Windows.Forms.Form
     {
         private bool _ok, _ok2, _ok01, _ok02, _ok03, _ok04, _ok05, _ok06, _ok07, _ok08, _ok09, _ok10, _ok11, _ok12;
         public int index; // выбранное задание
@@ -13,7 +13,7 @@ namespace CommandWork
         public static string[] date, date2; // основная дата и дата для промежутка
         public string months, days;
 
-        public Form()
+        public FormMain()
         {
             InitializeComponent();
             maskedTextBox1.TextChanged += maskedTextBox1_tc1;

@@ -1,6 +1,6 @@
 ﻿namespace CommandWork
 {
-    partial class Form
+    partial class FormMain
     {
         /// <summary>
         /// Обязательная переменная конструктора.

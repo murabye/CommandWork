@@ -20,7 +20,7 @@ namespace CommandWork
 
             if (yearDiff*12 + monthDiff + 10 > TimeInterval.MaxMonths)
             {
-                Form.Push("Слишком большой интервал: некорректные вычисления");
+                FormMain.Push("Слишком большой интервал: некорректные вычисления");
                 return;
             }
             
@@ -30,7 +30,7 @@ namespace CommandWork
                 yearDiff * 60 * 60 * 24 * 30 * 12;
 
             // выслать интервал
-            Form.Push(new TimeInterval(seconds, 0));
+            FormMain.Push(new TimeInterval(seconds, 0));
         }
 
         public static void Push(Date arg1, TimeInterval arg2, bool isPlus)
@@ -60,7 +60,7 @@ namespace CommandWork
                 year += arg1.Year - arg2.Years;
             }
 
-            Form.Push(new Date(year, month, day, hour, minute, second));
+            FormMain.Push(new Date(year, month, day, hour, minute, second));
         }
 
         static int PlusST(int arg1, int arg2, int maxtime, int first, ref int next)
