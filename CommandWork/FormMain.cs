@@ -29,25 +29,6 @@ namespace CommandWork
             maskedTextBox12.TextChanged += MaskedTextBoxLenght2;
         }
 
-        #region ButtonClick
-
-        public static void Push(Date ans)
-        {
-
-        }
-
-        public static void Push(TimeInterval ans)
-        {
-
-        }
-
-        public static void Push(string exception)
-        {
-
-        }
-
-        #endregion
-
         #region RadioButtonClick
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

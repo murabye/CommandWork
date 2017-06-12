@@ -17,6 +17,21 @@ namespace CommandWork
             InitializeComponent();
         }
 
+        public static void Push(Date ans)
+        {
+
+        }
+
+        public static void Push(TimeInterval ans)
+        {
+
+        }
+
+        public static void Push(string exception)
+        {
+
+        }
+
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Clear();
