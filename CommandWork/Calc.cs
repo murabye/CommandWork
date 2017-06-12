@@ -19,9 +19,14 @@ namespace CommandWork
             return false;
         }
 
-        public static bool CheckMonthsDates(string num) // лучше оставь это. я тут проверяю корректно ли введено значение дней или месяцев
+        public static bool CheckMonths(string days) // лучше оставь это. я тут проверяю корректно ли введено значение дней или месяцев
         {
-            return CheckNumber(num, 0, Int32.MaxValue);
+            return CheckNumber(days, 0, TimeInterval.MaxDays);
+        }
+
+        public static bool CheckDays(string months)
+        {
+            return CheckNumber(months, 0, TimeInterval.MaxMonths);
         }
 
         public static bool CheckTimeInterval(string arg, int type) // что тут и дальше - хз, но оставлю так, как сделала Варя, сам поменяешь
@@ -39,11 +44,11 @@ namespace CommandWork
             
         }
 
-        static bool CheckNumber(string text, int minSize, int maxSize) // проверка соответствия ввода типу int 
+        static bool CheckNumber(string text, uint minSize, uint maxSize) // проверка соответствия ввода типу int 
         {
             try
             {
-                var number = Convert.ToInt32(text);
+                var number = Convert.ToUInt32(text);
                 return number >= minSize && number <= maxSize;
             }
             catch (FormatException)

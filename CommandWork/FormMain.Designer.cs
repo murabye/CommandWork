@@ -130,8 +130,10 @@
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Вычитание даты и временного интервала",
-            "Сложение даты и временного интервала",
+            "Вычитание даты и месяцев",
+            "Сложение даты и месяцев",
+            "Вычитание даты и дней",
+            "Сложение даты и дней",
             "Вычитание дат"});
             this.comboBox1.Location = new System.Drawing.Point(15, 66);
             this.comboBox1.Name = "comboBox1";
@@ -192,9 +194,9 @@
             // 
             this.maskedTextBox9.Enabled = false;
             this.maskedTextBox9.Location = new System.Drawing.Point(114, 140);
-            this.maskedTextBox9.Mask = "00";
+            this.maskedTextBox9.Mask = "0000";
             this.maskedTextBox9.Name = "maskedTextBox9";
-            this.maskedTextBox9.Size = new System.Drawing.Size(21, 20);
+            this.maskedTextBox9.Size = new System.Drawing.Size(28, 20);
             this.maskedTextBox9.TabIndex = 91;
             this.maskedTextBox9.Click += new System.EventHandler(this.maskedTextBox_Click);
             this.maskedTextBox9.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
@@ -314,9 +316,9 @@
             // 
             this.maskedTextBox3.Enabled = false;
             this.maskedTextBox3.Location = new System.Drawing.Point(114, 107);
-            this.maskedTextBox3.Mask = "00";
+            this.maskedTextBox3.Mask = "0000";
             this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(21, 20);
+            this.maskedTextBox3.Size = new System.Drawing.Size(28, 20);
             this.maskedTextBox3.TabIndex = 79;
             this.maskedTextBox3.Click += new System.EventHandler(this.maskedTextBox_Click);
             this.maskedTextBox3.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
