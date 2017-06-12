@@ -130,15 +130,9 @@
             this.comboBox1.Enabled = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Перевод даты в другой формат",
-            "Вычитание месяцев/дней из даты",
-            "Сложение месяцев/дней с датой",
-            "Запрос количества дней в интервале",
-            "Запрос количества недель в интервале",
-            "Запрос количества месяцев в интервале",
-            "Запрос количества часов в интервале",
-            "Запрос количества минут в интервале",
-            "Запрос количества секунд в интервале"});
+            "Вычитание даты и временного интервала",
+            "Сложение даты и временного интервала",
+            "Вычитание дат"});
             this.comboBox1.Location = new System.Drawing.Point(15, 66);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(260, 21);
@@ -418,7 +412,7 @@
             this.label1.TabIndex = 70;
             this.label1.Text = "Выберите формат даты:";
             // 
-            // Form
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -457,7 +451,7 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
-            this.Name = "Form";
+            this.Name = "FormMain";
             this.Text = "Калькулятор дат";
             this.ResumeLayout(false);
             this.PerformLayout();

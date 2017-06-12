@@ -82,31 +82,21 @@ namespace CommandWork
                 maskedTextBox1.Enabled = true; // доступен ввод даты 1
                 maskedTextBox2.Enabled = maskedTextBox3.Enabled = maskedTextBox4.Enabled =
                     maskedTextBox5.Enabled = maskedTextBox6.Enabled = maskedTextBox1.Enabled;
-            }
-            if (index == 0) // выбран перевод даты
-            {
-                maskedTextBox7.Enabled = false; // недоступен ввод даты 2
-                maskedTextBox8.Enabled = maskedTextBox9.Enabled = maskedTextBox10.Enabled =
-                maskedTextBox11.Enabled = maskedTextBox12.Enabled = maskedTextBox7.Enabled;
-                button1.Enabled = true; // доступна кнопка перевода
-                textBox1.Enabled = false; // недоступен ввод месяцев
-                textBox2.Enabled = false; // недоступен ввод дней
-            }
-            else if (index == 1 || index == 2) // для прибавления или вычитания месяцев/дней
-            {
-                maskedTextBox7.Enabled = false; // недоступен ввод даты 2
-                maskedTextBox8.Enabled = maskedTextBox9.Enabled = maskedTextBox10.Enabled =
-                maskedTextBox11.Enabled = maskedTextBox12.Enabled = maskedTextBox7.Enabled;
                 button1.Enabled = false; // недоступна кнопка перевода
+            }
+            else if (index == 0 || index == 1) // для прибавления или вычитания месяцев/дней
+            {
+                maskedTextBox7.Enabled = false; // недоступен ввод даты 2
+                maskedTextBox8.Enabled = maskedTextBox9.Enabled = maskedTextBox10.Enabled =
+                maskedTextBox11.Enabled = maskedTextBox12.Enabled = maskedTextBox7.Enabled;
                 textBox1.Enabled = true; // доступен ввод месяцев
                 textBox2.Enabled = true; // доступен ввод дней
             }
-            else if (index != -1 && index != 0 && index != 1 && index != 2) // для запросов
+            else if (index == 2) // для вычитания дат
             {
                 maskedTextBox7.Enabled = true; // доступен ввод даты 2
                 maskedTextBox8.Enabled = maskedTextBox9.Enabled = maskedTextBox10.Enabled =
                 maskedTextBox11.Enabled = maskedTextBox12.Enabled = maskedTextBox7.Enabled;
-                button1.Enabled = false; // недоступна кнопка перевода
                 textBox1.Enabled = false; // недоступен ввод месяцев
                 textBox2.Enabled = false; // недоступен ввод дней
             }
@@ -265,34 +255,31 @@ namespace CommandWork
             button1.Enabled = ok && index == 0; // если дата верна - кнопка доступна
             switch (index)
             {
-                case 1:
+                case 0:
                     months = textBox1.Text; // для прибавления или вычитания месяцев
                     ok = Calc.CheckMonthsDates(months);
                     button1.Enabled = ok;
                     break;
-                case 2:
+                case 1:
                     days = textBox2.Text; // для прибавления или вычитания дней
                     ok = Calc.CheckMonthsDates(days);
                     button1.Enabled = ok;
                     break;
                 default:
-                    if (index != 0 && index != 1 && index != 2) // для запросов
+                    if (!isAmerican)
                     {
-                        if (!isAmerican)
-                        {
-                            date2[0] = maskedTextBox7.Text;
-                            date2[1] = maskedTextBox8.Text;
-                        }
-                        else
-                        {
-                            date2[1] = maskedTextBox7.Text;
-                            date2[2] = maskedTextBox8.Text;
-                        }
-                        date2[2] = maskedTextBox9.Text;
-                        date2[3] = maskedTextBox10.Text;
-                        date2[4] = maskedTextBox11.Text;
-                        date2[5] = maskedTextBox12.Text;
+                        date2[0] = maskedTextBox7.Text;
+                        date2[1] = maskedTextBox8.Text;
                     }
+                    else
+                    {
+                        date2[1] = maskedTextBox7.Text;
+                        date2[2] = maskedTextBox8.Text;
+                    }
+                    date2[2] = maskedTextBox9.Text;
+                    date2[3] = maskedTextBox10.Text;
+                    date2[4] = maskedTextBox11.Text;
+                    date2[5] = maskedTextBox12.Text;
                     ok2 = Calc.CheckDate(date2, isAmerican);
                     button1.Enabled = ok2 && ok;
                     break;
