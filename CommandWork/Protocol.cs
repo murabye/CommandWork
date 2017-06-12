@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,8 @@ namespace CommandWork
     public class Protocol
     {
         // поля
-        private string _arg1, _arg2, _path;
+        private string[] _arg1, _arg2;
+        private string _path;
         private bool _isPlus;
         private Dictionary<string, string> _operations;
 
@@ -19,14 +21,15 @@ namespace CommandWork
         {
             get
             {
-                var ans = _isPlus ? _arg1 + '+' + _arg2 : _arg1 + '-' + _arg2;
+                var ans = String.Join(":", _arg1);
+                //var ans = _isPlus ? _arg1 + '+' + _arg2 : _arg1 + '-' + _arg2;
                 return ans;
             }
         }
         public Dictionary<string, string> Operations { get { return _operations; } }
 
         // конструктор
-        public Protocol(string path, string arg1, string arg2, bool isPlus)
+        public Protocol(string path, string[] arg1, string[] arg2, bool isPlus)
         {
             // чистый протокол
             _arg1 = arg1;
@@ -51,9 +54,9 @@ namespace CommandWork
         // запись в файл
         public void Finish()
         {
-            // запись в файл, находящийся по адресу _path
-            // продумать формат записи!
-            // сейчас: сериализация
+            var flow = new StreamWriter(_path, true);
+            
+
         }
     }
 }
