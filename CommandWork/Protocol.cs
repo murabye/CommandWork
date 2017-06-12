@@ -16,7 +16,7 @@ namespace CommandWork
         private List<Pair> _operations;                                 // коллекция значений операция-результат 
 
         // публичные свойства
-        public string Input { get { return Input; } }                   // ввод пользователем
+        public string Input { get { return _input; } }                   // ввод пользователем
         public List<Pair> Operations { get { return _operations; } }    // коллекция сделанного
 
         // конструктор
