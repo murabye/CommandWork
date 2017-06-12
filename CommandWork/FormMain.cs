@@ -146,12 +146,14 @@ namespace CommandWork
 
         private void MaskedTextBoxLenght2(object sender, EventArgs e)
         {
-            Boomcheck(maskedTextBox1, 2);
+            var thisMtb = (MaskedTextBox) sender;
+            Boomcheck(thisMtb, 2);
         }
 
         private void MaskedTextBoxLenght4(object sender, EventArgs e)
         {
-            Boomcheck(maskedTextBox1, 4);
+            var thisMtb = (MaskedTextBox)sender;
+            Boomcheck(thisMtb, 4);
         }
 
         private void maskedTextBox_Click(object sender, EventArgs e)
