@@ -16,5 +16,21 @@ namespace CommandWork
         {
             InitializeComponent();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            var index = comboBox1.SelectedIndex;
+            if (index != -1) // если выбрано хоть что-то
+                textBox1.Enabled = true;
+            else if (index == 0) // для перевода
+            {
+                
+            }
+            else if (index == 2) // для вычитания дат
+            {
+                
+            }
+        }
     }
 }
