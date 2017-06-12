@@ -20,8 +20,8 @@ namespace CommandWork
         public int MaxType = types.Length;
 
         // какие типы
-        static string[] types = { " seconds", " minutes",
-            " hours", " days", " weeks", " months" };
+        static string[] types = { " секунд", " минут",
+            " часов", " дней", " недель", " месяцев" };
 
         // поля
         private ulong num = 0;             // из данных полей хранить информацию
