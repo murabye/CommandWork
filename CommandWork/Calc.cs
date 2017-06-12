@@ -16,25 +16,25 @@ namespace CommandWork
         // если будешь убирать у себя это - скажи мне
         public static bool CheckDate(string[] date, bool isAmerican) // тут проверить на 30 февраля
         {
-            int days, months, years;
+            int days, months, years; // days - дни, months - месяцы, years - года
             bool leapYear = false; // Високосность года
 
-            if (CheckNumber(date[2], 1583, 9999))
+            if (CheckNumber(date[2], 1583, 9999)) // Проверка года на соответствие промежутку и типу Int
             {
                 years = Int32.Parse(date[2]);
                 if ((years % 4) == 0) leapYear = true; // Проверка на високосность года
             }
             else return false;
 
-            if (CheckNumber(date[1], 1, 12))
+            if (CheckNumber(date[1], 1, 12)) // Проверка месяца на соответствие промежутку и типу Int
             {
                 months = Int32.Parse(date[1]);
             }
             else return false;
 
-            switch (months)
+            switch (months) // Проверка дней на соответствие промежутку и типу Int
             {
-                case 1:
+                case 1: 
                     if (CheckNumber(date[0], 1, 31))
                     {
                         days = Int32.Parse(date[0]);
@@ -135,17 +135,17 @@ namespace CommandWork
                     break;
             }
 
-            if (!CheckNumber(date[3], 0, 23))
+            if (!CheckNumber(date[3], 0, 23)) // Проверка часов на соответствие промежутку и типу Int
             {
                 return false;
             }
 
-            if (!CheckNumber(date[4], 0, 59))
+            if (!CheckNumber(date[4], 0, 59)) // Проверка минут на соответствие промежутку и типу Int
             {
                 return false;
             }
 
-            if (!CheckNumber(date[5], 0, 59))
+            if (!CheckNumber(date[5], 0, 59)) // Проверка секунд на соответствие промежутку и типу Int
             {
                 return false;
             }
