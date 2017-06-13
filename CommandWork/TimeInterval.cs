@@ -9,11 +9,11 @@ namespace CommandWork
     public class TimeInterval
     {
         // Максимальная протяженность задаваемого периода
-        public const uint MaxSeconds = uint.MaxValue;
-        public const uint MaxMinutes = MaxSeconds / 60;
-        public const uint MaxHours = MaxMinutes / 60;
-        public const uint MaxDays = MaxHours / 24;
-        public const uint MaxWeeks = MaxDays / 7;
+        public const uint MaxSeconds = uint.MaxValue; 
+        public const uint MaxMinutes = MaxSeconds / 60; 
+        public const uint MaxHours = MaxMinutes / 60; 
+        public const uint MaxDays = MaxHours / 24; 
+        public const uint MaxWeeks = MaxDays / 7; 
         public const uint MaxMonths = MaxDays / 30; 
 
         // сколько типов данных входных

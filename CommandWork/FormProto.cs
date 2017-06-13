@@ -16,5 +16,10 @@ namespace CommandWork
         {
             InitializeComponent();
         }
+
+        public static void Push(List<Protocol> proto)
+        {
+            // здесь тебе приходит список всех протоколов
+        }
     }
 }
