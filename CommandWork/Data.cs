@@ -30,7 +30,7 @@ namespace CommandWork
                 yearDiff * 60 * 60 * 24 * 30 * 12;
 
             // выслать интервал
-            FormAns.Push(new TimeInterval(seconds, 0));
+            FormAns.Push(new TimeInterval(seconds, 1));
         }
         public static void Push(List<Protocol> proto)
         {

@@ -108,8 +108,6 @@ namespace CommandWork
         // перегрузки
         public override string ToString()
         {
-            string[] types = {" seconds"," minutes"," hours"," days", " weeks", " months" };
-
             return num + types[type - 1];
         }
     }
