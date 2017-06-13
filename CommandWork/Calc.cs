@@ -14,7 +14,7 @@ namespace CommandWork
         // number в этой функции можно извлечь и кинуть Варе, но лучше ее спроси, в каком формате она это принимает для подсчета
         // кстати тебе скорее всего не понадобится isAmerican, потому что массивы с датами я кидаю в одинаковом русском формате 
         // если будешь убирать у себя это - скажи мне
-        public static bool CheckDate(string[] date, bool isAmerican) // Проверка на 30 февраля
+        public static bool CheckDate(string[] date) // Проверка на 30 февраля
         {
             ulong months, years; // months - месяцы, years - года
 
@@ -51,17 +51,34 @@ namespace CommandWork
             return CheckNumber(months, 0, TimeInterval.MaxMonths);
         }
 
-        public static bool CheckTimeInterval(string arg, int type) // что тут и дальше - хз, но оставлю так, как сделала Варя, сам поменяешь
+        public static void PushDate(string[] date1, string[] date2) 
         {
-            return true;
+            int data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds,
+                data2_Day, data2_Month, data2_Year, data2_Hours, data2_Minutes, data2_Seconds;
+
+            #region
+            data1_Day = Int32.Parse(date1[0]); 
+            data1_Month = = Int32.Parse(date1[1]);
+            data1_Year = Int32.Parse(date1[2]);
+            data1_Hours = Int32.Parse(date1[3]);
+            data1_Minutes = Int32.Parse(date1[4]);
+            data1_Seconds = Int32.Parse(date1[5]);
+            #endregion
+
+            #region
+            data2_Day = Int32.Parse(date2[0]);
+            data2_Month = = Int32.Parse(date2[1]);
+            data2_Year = Int32.Parse(date2[2]);
+            data2_Hours = Int32.Parse(date2[3]);
+            data2_Minutes = Int32.Parse(date2[4]);
+            data2_Seconds = Int32.Parse(date2[5]);
+            #endregion
+
+            Date pushData1 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
+            Date pushData2 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
         }
 
-        public static void PushDate(string arg1, string arg2, bool isAmericanArg1, bool isAmericanArg2)
-        {
-            
-        }
-
-        public static void PushTimeInterval(string arg1, string arg2, bool isAmericanArg1, bool isPlus)
+        public static void PushTimeInterval(string[] arg1, string[] arg2, bool isPlus)
         {
             
         }
