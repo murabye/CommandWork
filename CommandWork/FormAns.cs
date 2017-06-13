@@ -27,9 +27,8 @@ namespace CommandWork
             comboBox1.Items.Clear(); // предварительная очистка ComboBox
             if (Variant != 4)
             {
-                us = new[] { "Перевод в другой формат" };
+                us = new[] { "Перевод в российский формат", "Перевод в американский формат" };
                 
-
                 #region отпраление данных на обработку(TimeInterval)
 
                 bool isPlus = Variant == 1 || Variant == 3;
@@ -60,6 +59,7 @@ namespace CommandWork
             // выгрузка данных из файла в ComboBox
             comboBox1.Items.AddRange(us);
 
+            textBox1.Enabled = true;
             if (Variant != 4)
                 Result = IsAmerican ? Answer.ToAmerican() : Answer.ToString();
             else if (Variant == 4) Result = Answer2.ToString();
@@ -86,12 +86,8 @@ namespace CommandWork
         {
             textBox1.Clear();
             Index = comboBox1.SelectedIndex;
-            if (Index != -1) // если выбрано хоть что-то
-                textBox1.Enabled = true;
-            if (Variant != 4 && Index == 0)
-            {
-                Result = IsAmerican ? Answer.ToString() : Answer.ToAmerican();
-            }
+            if (Variant != 4 && Index == 0) Result = Answer.ToString();
+            else if (Variant != 4 && Index == 1) Result = Answer.ToAmerican();
             else if (Variant == 4)
                 switch (Index)
                 {
