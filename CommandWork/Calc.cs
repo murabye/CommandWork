@@ -14,7 +14,7 @@ namespace CommandWork
         // number в этой функции можно извлечь и кинуть Варе, но лучше ее спроси, в каком формате она это принимает для подсчета
         // кстати тебе скорее всего не понадобится isAmerican, потому что массивы с датами я кидаю в одинаковом русском формате 
         // если будешь убирать у себя это - скажи мне
-        public static bool CheckDate(string[] date, bool isAmerican) // тут проверить на 30 февраля
+        public static bool CheckDate(string[] date, bool isAmerican) // Проверка на 30 февраля
         {
             ulong days, months, years; // days - дни, months - месяцы, years - года
             bool leapYear = false; // Високосность года
@@ -26,7 +26,7 @@ namespace CommandWork
             }
             else return false;
 
-            if (CheckNumber(date[1], 1, 12)) // Проверка месяца на соответствие промежутку и типу Int
+            if (CheckNumber(date[1], 1, TimeInterval.MaxMonths)) // Проверка месяца на соответствие промежутку и типу Int
             {
                 months = ulong.Parse(date[1]);
             }
@@ -135,17 +135,17 @@ namespace CommandWork
                     break;
             }
 
-            if (!CheckNumber(date[3], 0, 23)) // Проверка часов на соответствие промежутку и типу Int
+            if (!CheckNumber(date[3], 0, TimeInterval.MaxHours)) // Проверка часов на соответствие промежутку и типу Int
             {
                 return false;
             }
 
-            if (!CheckNumber(date[4], 0, 59)) // Проверка минут на соответствие промежутку и типу Int
+            if (!CheckNumber(date[4], 0, TimeInterval.MaxMinutes)) // Проверка минут на соответствие промежутку и типу Int
             {
                 return false;
             }
 
-            if (!CheckNumber(date[5], 0, 59)) // Проверка секунд на соответствие промежутку и типу Int
+            if (!CheckNumber(date[5], 0, TimeInterval.MaxSeconds)) // Проверка секунд на соответствие промежутку и типу Int
             {
                 return false;
             }
@@ -163,14 +163,16 @@ namespace CommandWork
             return CheckNumber(months, 0, TimeInterval.MaxMonths);
         }
 
-        public static bool CheckTimeInterval(string arg, int type) // что тут и дальше - хз, но оставлю так, как сделала Варя, сам поменяешь
+        public static bool CheckTimeInterval(string arg, int type) // 
         {
+                
+
             return true;
         }
 
         public static void PushDate(string arg1, string arg2, bool isAmericanArg1, bool isAmericanArg2)
         {
-            
+            return new Date();
         }
 
         public static void PushTimeInterval(string arg1, string arg2, bool isAmericanArg1, bool isPlus)
