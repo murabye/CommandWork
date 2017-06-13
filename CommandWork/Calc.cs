@@ -195,5 +195,21 @@ namespace CommandWork
             }
         }
 
+        static List<Protocol> PushProto(string path)
+        {
+            List<Protocol> ans;
+            try
+            {
+                ans = Protocol.Start(path);
+            }
+            catch (Exception e)
+            {
+                FormAns.Push(e.Message);
+                throw;
+            }
+
+            return ans;
+        }
+
     }
 }
