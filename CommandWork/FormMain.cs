@@ -205,12 +205,12 @@ namespace CommandWork
                 case 0:
                 case 1:
                     Months = months1.Text; // для прибавления или вычитания месяцев
-                    doAction.Enabled = Calc.CheckMonths(Months) && Calc.CheckDate(Date, isAmerican);
+                    doAction.Enabled = Calc.CheckMonths(Months) && Calc.CheckDate(Date);
                     return doAction.Enabled;
                 case 2:
                 case 3:
                     Days = days1.Text; // для прибавления или вычитания дней
-                    doAction.Enabled = Calc.CheckDays(Days) && Calc.CheckDate(Date, isAmerican);
+                    doAction.Enabled = Calc.CheckDays(Days) && Calc.CheckDate(Date);
                     return doAction.Enabled;
                 default: // для вычитания дат
                     if (!isAmerican)
