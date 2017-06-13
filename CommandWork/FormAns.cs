@@ -29,10 +29,13 @@ namespace CommandWork
             {
                 us = new[] { "Перевод в другой формат" };
 
-                #region отпраление данных на обработку(Date)
+                #region отпраление данных на обработку(TimeInterval)
 
-                Calc.PushDate(FormMain.Date, FormMain.Date2); // мяу
-
+                bool isPlus = Variant == 1 || Variant == 3;
+                if (Variant == 0 || Variant == 1)
+                    Calc.PushTimeInterval(FormMain.Date, FormMain.Months, "6", isPlus);
+                else Calc.PushTimeInterval(FormMain.Date, FormMain.Days, "4", isPlus);
+                
                 #endregion
             }
             else
@@ -47,12 +50,9 @@ namespace CommandWork
                     "Запрос количества секунд в интервале"
                 };
 
-                #region отпраление данных на обработку(TimeInterval)
+                #region отпраление данных на обработку(Date)
 
-                bool isPlus = Variant == 1 || Variant == 3;
-                if (Variant == 0 || Variant == 1)
-                Calc.PushTimeInterval(FormMain.Date, FormMain.Months, "6", isPlus);
-                else Calc.PushTimeInterval(FormMain.Date, FormMain.Days, "4", isPlus);
+                Calc.PushDate(FormMain.Date, FormMain.Date2);
 
                 #endregion
             }
