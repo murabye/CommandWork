@@ -19,6 +19,8 @@ namespace CommandWork
         public readonly int Variant = FormMain.Index;
         private static Date Answer;
         private static TimeInterval Answer2;
+        private static bool exc;
+        public static string ExcInfo;
         public FormAns(bool status)
         {
             InitializeComponent();
@@ -60,9 +62,14 @@ namespace CommandWork
             comboBox1.Items.AddRange(us);
 
             textBox1.Enabled = true;
-            if (Variant != 4)
+            if (Variant != 4 && !exc)
                 Result = IsAmerican ? Answer.ToAmerican() : Answer.ToString();
-            else if (Variant == 4) Result = Answer2.ToString();
+            else if (Variant == 4 && !exc) Result = Answer2.ToString();
+            else if (exc)
+            {
+                Result = ExcInfo;
+                comboBox1.Items.Clear();
+            }
             textBox1.Text = Result;
         }
 
@@ -70,25 +77,28 @@ namespace CommandWork
         {
             Result = !IsAmerican ? ans.ToString() : ans.ToAmerican();
             Answer = ans;
+            exc = false;
         }
 
         public static void Push(TimeInterval ans)
         {
             Answer2 = ans;
+            exc = false;
         }
 
         public static void Push(string exception)
         {
-            Result = exception;
+            ExcInfo = exception;
+            exc = true;
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox1.Clear();
             Index = comboBox1.SelectedIndex;
-            if (Variant != 4 && Index == 0) Result = Answer.ToString();
-            else if (Variant != 4 && Index == 1) Result = Answer.ToAmerican();
-            else if (Variant == 4)
+            if (Variant != 4 && Index == 0 && !exc) Result = Answer.ToString();
+            else if (Variant != 4 && Index == 1 && !exc) Result = Answer.ToAmerican();
+            else if (Variant == 4 && !exc)
                 switch (Index)
                 {
                     case 0:

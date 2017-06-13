@@ -455,6 +455,7 @@
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
+            this.HelpButton = true;
             this.Name = "FormMain";
             this.Text = "Калькулятор дат";
             this.ResumeLayout(false);
