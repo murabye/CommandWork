@@ -85,7 +85,7 @@ namespace CommandWork
             Data.Push(pushData1, pushData2);
         }
 
-        public static void PushTimeInterval(string[] date1, string[] arg2, bool isPlus) // Парс и отправка на решение
+        public static void PushTimeInterval(string[] date1, string arg, string argType, bool isPlus) // Парс и отправка на решение
         {
             // Объявляем переменные, чтобы в дальнейшем перебросить массив в Date
             int data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds, type;
@@ -103,8 +103,8 @@ namespace CommandWork
 
             // месяцев = 6, недель = 5, дней = 4, часов = 3, минут = 2, секунд = 1
             #region Создаём 
-            num = ulong.Parse(arg2[0]);
-            type = Int32.Parse(arg2[1]);
+            num = ulong.Parse(arg);
+            type = Int32.Parse(argType);
             #endregion
 
             // Создаём элементы типа Date и TimeInterval

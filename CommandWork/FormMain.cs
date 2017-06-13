@@ -102,10 +102,19 @@ namespace CommandWork
         {
             if ((e.KeyChar <= 47 || e.KeyChar >= 58) && e.KeyChar != 8) // разрешен ввод только цифр
                 e.Handled = true;
-            Check(IsAmerican);
         }
 
         private void maskedTextBox_TextChanged(object sender, EventArgs e) // проверка наличия ввода в maskedtextbox
+        {
+            CheckFull();
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
+        {
+            CheckFull();
+        }
+
+        private void CheckFull()
         {
             switch (Index)
             {
@@ -183,6 +192,8 @@ namespace CommandWork
             months1.Clear();
             days1.Clear();
         }
+
+        
 
         public bool Check(bool isAmerican) // проверка корректности ввода
         {

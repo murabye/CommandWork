@@ -85,6 +85,7 @@
             this.days1.Name = "days1";
             this.days1.Size = new System.Drawing.Size(63, 20);
             this.days1.TabIndex = 102;
+            this.days1.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             this.days1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label16
@@ -104,6 +105,7 @@
             this.months1.Name = "months1";
             this.months1.Size = new System.Drawing.Size(63, 20);
             this.months1.TabIndex = 100;
+            this.months1.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             this.months1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label15

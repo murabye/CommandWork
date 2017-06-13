@@ -50,7 +50,9 @@ namespace CommandWork
                 #region отпраление данных на обработку(TimeInterval)
 
                 bool isPlus = Variant == 1 || Variant == 3;
-                Calc.PushTimeInterval(FormMain.Date, FormMain.Date2, isPlus);
+                if (Variant == 0 || Variant == 1)
+                Calc.PushTimeInterval(FormMain.Date, FormMain.Months, "6", isPlus);
+                else Calc.PushTimeInterval(FormMain.Date, FormMain.Days, "4", isPlus);
 
                 #endregion
             }
