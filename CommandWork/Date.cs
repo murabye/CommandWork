@@ -34,24 +34,6 @@ namespace CommandWork
         public int Hour { get { return hour; } }
         public int Minute { get { return minute; } }
         public int Second { get { return second; } }
-        public string DayOfWeek
-        {
-            // григорианский календарь, то есть работает для годов позже
-            // 1583 года
-            get
-            {
-                // массив всех дней недели
-                string[] days = { "воскресенье", "понедельник",
-                    "вторник", "среда", "четверг", "пятница", "суббота" };
-
-                // промежуточные вычисления, спонсор формулы википедия
-                int a = (14 - Month) / 12;
-                int y = Year - a;
-                int m = Month + 12 * a - 2;
-
-                return days[(7000 + (Day + y + y / 4 - y / 100 + y / 400 + (31 * m) / 12))];
-            }
-        }                      // возвращает день недели от данной даты
 
         // конструкторы
         public Date()

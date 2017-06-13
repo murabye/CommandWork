@@ -63,7 +63,7 @@ namespace CommandWork
                 year += arg1.Year - arg2.Years;
             }
 
-            FormAns.Push(new Date(year, month, day, hour, minute, second));
+            FormAns.Push(new Date(day, month, year, hour, minute, second));
         }
 
         static int PlusST(int arg1, int arg2, int maxtime, int first, ref int next)
