@@ -28,6 +28,7 @@ namespace CommandWork
             if (Variant != 4)
             {
                 us = new[] { "Перевод в другой формат" };
+                
 
                 #region отпраление данных на обработку(TimeInterval)
 
@@ -59,6 +60,10 @@ namespace CommandWork
             // выгрузка данных из файла в ComboBox
             comboBox1.Items.AddRange(us);
 
+            if (Variant != 4)
+                Result = IsAmerican ? Answer.ToAmerican() : Answer.ToString();
+            else if (Variant == 4) Result = Answer2.ToString();
+            textBox1.Text = Result;
         }
 
         public static void Push(Date ans)
@@ -87,7 +92,7 @@ namespace CommandWork
             {
                 Result = IsAmerican ? Answer.ToString() : Answer.ToAmerican();
             }
-            if (Variant == 4)
+            else if (Variant == 4)
                 switch (Index)
                 {
                     case 0:
