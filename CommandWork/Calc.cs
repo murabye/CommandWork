@@ -58,7 +58,7 @@ namespace CommandWork
 
             #region
             data1_Day = Int32.Parse(date1[0]); 
-            data1_Month = = Int32.Parse(date1[1]);
+            data1_Month = Int32.Parse(date1[1]);
             data1_Year = Int32.Parse(date1[2]);
             data1_Hours = Int32.Parse(date1[3]);
             data1_Minutes = Int32.Parse(date1[4]);
@@ -67,7 +67,7 @@ namespace CommandWork
 
             #region
             data2_Day = Int32.Parse(date2[0]);
-            data2_Month = = Int32.Parse(date2[1]);
+            data2_Month = Int32.Parse(date2[1]);
             data2_Year = Int32.Parse(date2[2]);
             data2_Hours = Int32.Parse(date2[3]);
             data2_Minutes = Int32.Parse(date2[4]);
@@ -76,11 +76,34 @@ namespace CommandWork
 
             Date pushData1 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
             Date pushData2 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
+
+            Data.Push(pushData1, pushData2);
         }
 
-        public static void PushTimeInterval(string[] arg1, string[] arg2, bool isPlus)
+        public static void PushTimeInterval(string[] date1, string[] arg2, bool isPlus)
         {
-            
+            int data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds, type;
+            ulong num;
+
+            #region
+            data1_Day = Int32.Parse(date1[0]);
+            data1_Month = Int32.Parse(date1[1]);
+            data1_Year = Int32.Parse(date1[2]);
+            data1_Hours = Int32.Parse(date1[3]);
+            data1_Minutes = Int32.Parse(date1[4]);
+            data1_Seconds = Int32.Parse(date1[5]);
+            #endregion
+
+            // месяцев = 6, недель = 5, дней = 4, часов = 3, минут = 2, секунд = 1
+            #region
+            num = ulong.Parse(arg2[0]);
+            type = Int32.Parse(arg2[1]);
+            #endregion
+
+            Date pushDate = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
+            TimeInterval pushTI = new TimeInterval(num, type);
+
+            Data.Push(pushDate, pushTI, isPlus);
         }
 
         static bool CheckNumber(string text, uint minSize, uint maxSize) // проверка соответствия ввода типу int 
