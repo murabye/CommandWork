@@ -85,7 +85,7 @@ namespace CommandWork
             Data.Push(pushData1, pushData2);
         }
 
-        public static void PushTimeInterval(string[] date1, string[] arg2, bool isPlus)
+        public static void PushTimeInterval(string[] date1, string[] arg2, bool isPlus) // Парс и отправка на решение
         {
             // Объявляем переменные, чтобы в дальнейшем перебросить массив в Date
             int data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds, type;
