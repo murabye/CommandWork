@@ -33,7 +33,7 @@ namespace CommandWork
         {
             get
             {
-                if (type == 5) return num;
+                if (type == 6) return num;
                 return TotalDays / 30;
             }
         }
@@ -41,7 +41,7 @@ namespace CommandWork
         {
             get
             {
-                if (type == 4) return num;
+                if (type == 5) return num;
                 return TotalDays / 7;
             }
         }
@@ -49,9 +49,9 @@ namespace CommandWork
         {
             get
             {
-                if (type < 3) return TotalHours / 24;
-                if (type == 3) return num;
-                else if (type == 4) return TotalWeeks * 7;
+                if (type < 4) return TotalHours / 24;
+                if (type == 4) return num;
+                else if (type == 5) return TotalWeeks * 7;
                 return TotalMonths * 30;
             }
         }      
@@ -59,8 +59,8 @@ namespace CommandWork
         {
             get
             {
-                if (type < 2) return TotalMinutes / 60;
-                if (type == 2) return num;
+                if (type < 3) return TotalMinutes / 60;
+                if (type == 3) return num;
                 return TotalDays * 24;
             }
         }
@@ -68,8 +68,8 @@ namespace CommandWork
         {
             get
             {
-                if (type < 1) return TotalSecond / 60; 
-                if (type == 1) return num;
+                if (type < 2) return TotalSecond / 60; 
+                if (type == 2) return num;
                 return TotalHours * 60;
             }
         }
@@ -77,7 +77,7 @@ namespace CommandWork
         {
             get
             {
-                if (type == 0) return num;
+                if (type == 1) return num;
                 return TotalMinutes * 60;
             }
         }
@@ -110,7 +110,7 @@ namespace CommandWork
         {
             string[] types = {" seconds"," minutes"," hours"," days", " weeks", " months" };
 
-            return num + types[type];
+            return num + types[type - 1];
         }
     }
 }
