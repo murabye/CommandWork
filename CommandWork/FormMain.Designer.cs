@@ -418,8 +418,8 @@
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(291, 234);
             this.Controls.Add(this.doAction);
             this.Controls.Add(this.days1);
@@ -456,6 +456,7 @@
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label1);
             this.HelpButton = true;
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.Text = "Калькулятор дат";
             this.ResumeLayout(false);
