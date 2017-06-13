@@ -34,7 +34,7 @@ namespace CommandWork
         }
         public static void Push(List<Protocol> proto)
         {
-            FormProto.Push(List < Protocol > proto);
+            FormProto.Push(proto);
         }
         public static void Push(Date arg1, TimeInterval arg2, bool isPlus)
         {
