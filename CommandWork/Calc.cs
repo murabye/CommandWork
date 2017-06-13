@@ -43,7 +43,7 @@ namespace CommandWork
 
         public static bool CheckMonths(string months) // Проверка на корректный ввод месяцев
         {
-            return CheckNumber(days, Date.MinMonth, TimeInterval.MaxMonths);
+            return CheckNumber(months, Date.MinMonth, TimeInterval.MaxMonths);
         }
 
         public static bool CheckDays(string days) // Проверка на корректный ввод дней

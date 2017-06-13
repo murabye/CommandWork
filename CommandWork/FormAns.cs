@@ -49,7 +49,7 @@ namespace CommandWork
 
                 #region отпраление данных на обработку(TimeInterval)
 
-                Calc.PushTimeInterval(FormMain.Date, ???, ???);
+                Calc.PushTimeInterval(FormMain.Date, ???, Index, ???);
 
                 #endregion
             }
