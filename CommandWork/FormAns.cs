@@ -28,6 +28,12 @@ namespace CommandWork
             if (Variant != 4)
             {
                 us =new[] { "Перевод в другой формат" };
+
+                #region отпраление данных на обработку(Date)
+
+                Calc.PushDate();
+
+                #endregion
             }
             else
             {
@@ -40,11 +46,16 @@ namespace CommandWork
                     "Запрос количества минут в интервале",
                     "Запрос количества секунд в интервале"
                 };
+
+                #region отпраление данных на обработку(TimeInterval)
+
+                Calc.PushTimeInterval();
+
+                #endregion
             }
             // выгрузка данных из файла в ComboBox
             comboBox1.Items.AddRange(us);
-            
-            
+
         }
 
         public static void Push(Date ans)
