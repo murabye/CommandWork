@@ -31,7 +31,7 @@ namespace CommandWork
 
                 #region отпраление данных на обработку(Date)
 
-                Calc.PushDate();
+                Calc.PushDate(FormMain.Date, FormMain.Date2);
 
                 #endregion
             }
@@ -49,7 +49,7 @@ namespace CommandWork
 
                 #region отпраление данных на обработку(TimeInterval)
 
-                Calc.PushTimeInterval();
+                Calc.PushTimeInterval(FormMain.Date, ???, ???);
 
                 #endregion
             }

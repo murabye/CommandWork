@@ -41,22 +41,24 @@ namespace CommandWork
             return true;
         }
 
-        public static bool CheckMonths(string days) // лучше оставь это. я тут проверяю корректно ли введено значение дней или месяцев
+        public static bool CheckMonths(string months) // Проверка на корректный ввод месяцев
         {
-            return CheckNumber(days, 0, TimeInterval.MaxDays);
+            return CheckNumber(days, Date.MinMonth, TimeInterval.MaxMonths);
         }
 
-        public static bool CheckDays(string months)
+        public static bool CheckDays(string days) // Проверка на корректный ввод дней
         {
-            return CheckNumber(months, 0, TimeInterval.MaxMonths);
+            return CheckNumber(days, Date.MinDay, TimeInterval.MaxDays);
         }
 
-        public static void PushDate(string[] date1, string[] date2) 
+        public static void PushDate(string[] date1, string[] date2)  // Парс и отправка на решение
         {
+            // Объявляем переменные, чтобы в дальнейшем перебросить массив в Date
             int data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds,
                 data2_Day, data2_Month, data2_Year, data2_Hours, data2_Minutes, data2_Seconds;
 
-            #region
+            // Присваиваем значения из массива
+            #region 
             data1_Day = Int32.Parse(date1[0]); 
             data1_Month = Int32.Parse(date1[1]);
             data1_Year = Int32.Parse(date1[2]);
@@ -65,6 +67,7 @@ namespace CommandWork
             data1_Seconds = Int32.Parse(date1[5]);
             #endregion
 
+            // Присваиваем значения из массива
             #region
             data2_Day = Int32.Parse(date2[0]);
             data2_Month = Int32.Parse(date2[1]);
@@ -74,17 +77,21 @@ namespace CommandWork
             data2_Seconds = Int32.Parse(date2[5]);
             #endregion
 
+            // Создаем элементы типа Date
             Date pushData1 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
             Date pushData2 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
 
+            // Отправляем решать 
             Data.Push(pushData1, pushData2);
         }
 
         public static void PushTimeInterval(string[] date1, string[] arg2, bool isPlus)
         {
+            // Объявляем переменные, чтобы в дальнейшем перебросить массив в Date
             int data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds, type;
             ulong num;
 
+            // Присваиваем значения из массива
             #region
             data1_Day = Int32.Parse(date1[0]);
             data1_Month = Int32.Parse(date1[1]);
@@ -95,14 +102,16 @@ namespace CommandWork
             #endregion
 
             // месяцев = 6, недель = 5, дней = 4, часов = 3, минут = 2, секунд = 1
-            #region
+            #region Создаём 
             num = ulong.Parse(arg2[0]);
             type = Int32.Parse(arg2[1]);
             #endregion
 
+            // Создаём элементы типа Date и TimeInterval
             Date pushDate = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
             TimeInterval pushTI = new TimeInterval(num, type);
 
+            // Отправляем решать
             Data.Push(pushDate, pushTI, isPlus);
         }
 
@@ -123,6 +132,7 @@ namespace CommandWork
             }
         }
 
+        // Работа с протоколом
         static List<Protocol> PushProto(string path)
         {
             List<Protocol> ans;
