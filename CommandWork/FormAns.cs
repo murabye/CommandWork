@@ -23,15 +23,15 @@ namespace CommandWork
         {
             InitializeComponent();
             IsAmerican = status;
-            ArrayList us;
+            object[] us;
             comboBox1.Items.Clear(); // предварительная очистка ComboBox
             if (Variant != 4)
             {
-                us = new ArrayList { "Перевод в другой формат" };
+                us =new[] { "Перевод в другой формат" };
             }
             else
             {
-                us = new ArrayList
+                us = new[]
                 {
                     "Запрос количества дней в интервале",
                     "Запрос количества недель в интервале",
@@ -41,8 +41,10 @@ namespace CommandWork
                     "Запрос количества секунд в интервале"
                 };
             }
-            foreach (var t in us) // выгрузка данных из файла в ComboBox
-                comboBox1.Items.Add(t);
+            // выгрузка данных из файла в ComboBox
+            comboBox1.Items.AddRange(us);
+            
+            
         }
 
         public static void Push(Date ans)
