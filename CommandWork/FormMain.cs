@@ -227,7 +227,7 @@ namespace CommandWork
                     Date2[3] = hour2.Text;
                     Date2[4] = minutes2.Text;
                     Date2[5] = seconds2.Text;
-                    doAction.Enabled = Calc.CheckDate(Date2, isAmerican) && Calc.CheckDate(Date, isAmerican);
+                    doAction.Enabled = Calc.CheckDate(Date2) && Calc.CheckDate(Date);
                     return doAction.Enabled;
             }
         }
