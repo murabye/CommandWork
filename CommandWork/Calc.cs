@@ -16,19 +16,19 @@ namespace CommandWork
         // если будешь убирать у себя это - скажи мне
         public static bool CheckDate(string[] date, bool isAmerican) // тут проверить на 30 февраля
         {
-            int days, months, years; // days - дни, months - месяцы, years - года
+            ulong days, months, years; // days - дни, months - месяцы, years - года
             bool leapYear = false; // Високосность года
 
             if (CheckNumber(date[2], 1583, 9999)) // Проверка года на соответствие промежутку и типу Int
             {
-                years = Int32.Parse(date[2]);
+                years = ulong.Parse(date[2]);
                 if ((years % 4) == 0) leapYear = true; // Проверка на високосность года
             }
             else return false;
 
             if (CheckNumber(date[1], 1, 12)) // Проверка месяца на соответствие промежутку и типу Int
             {
-                months = Int32.Parse(date[1]);
+                months = ulong.Parse(date[1]);
             }
             else return false;
 
@@ -37,7 +37,7 @@ namespace CommandWork
                 case 1: 
                     if (CheckNumber(date[0], 1, 31))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -45,11 +45,11 @@ namespace CommandWork
                 case 2:
                     if (!leapYear && CheckNumber(date[0], 1, 28))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else if (leapYear && CheckNumber(date[0], 1, 29))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -57,7 +57,7 @@ namespace CommandWork
                 case 3:
                     if (CheckNumber(date[0], 1, 31))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -65,7 +65,7 @@ namespace CommandWork
                 case 4:
                     if (CheckNumber(date[0], 1, 30))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -73,7 +73,7 @@ namespace CommandWork
                 case 5:
                     if (CheckNumber(date[0], 1, 31))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -81,7 +81,7 @@ namespace CommandWork
                 case 6:
                     if (CheckNumber(date[0], 1, 30))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -89,7 +89,7 @@ namespace CommandWork
                 case 7:
                     if (CheckNumber(date[0], 1, 31))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -97,7 +97,7 @@ namespace CommandWork
                 case 8:
                     if (CheckNumber(date[0], 1, 31))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -105,7 +105,7 @@ namespace CommandWork
                 case 9:
                     if (CheckNumber(date[0], 1, 30))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -113,7 +113,7 @@ namespace CommandWork
                 case 10:
                     if (CheckNumber(date[0], 1, 31))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -121,7 +121,7 @@ namespace CommandWork
                 case 11:
                     if (CheckNumber(date[0], 1, 30))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
@@ -129,7 +129,7 @@ namespace CommandWork
                 case 12:
                     if (CheckNumber(date[0], 1, 31))
                     {
-                        days = Int32.Parse(date[0]);
+                        days = ulong.Parse(date[0]);
                     }
                     else return false;
                     break;
