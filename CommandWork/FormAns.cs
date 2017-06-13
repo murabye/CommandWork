@@ -27,7 +27,7 @@ namespace CommandWork
             comboBox1.Items.Clear(); // предварительная очистка ComboBox
             if (Variant != 4)
             {
-                us =new[] { "Перевод в другой формат" };
+                us = new[] { "Перевод в другой формат" };
 
                 #region отпраление данных на обработку(Date)
 
@@ -49,7 +49,8 @@ namespace CommandWork
 
                 #region отпраление данных на обработку(TimeInterval)
 
-                Calc.PushTimeInterval(FormMain.Date, ???, Index, ???);
+                bool isPlus = Variant == 1 || Variant == 3;
+                Calc.PushTimeInterval(FormMain.Date, FormMain.Date2, isPlus);
 
                 #endregion
             }
