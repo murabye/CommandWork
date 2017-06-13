@@ -32,7 +32,10 @@ namespace CommandWork
             // выслать интервал
             FormAns.Push(new TimeInterval(seconds, 0));
         }
-
+        public static void Push(List<Protocol> proto)
+        {
+            FormProto.Push(List < Protocol > proto);
+        }
         public static void Push(Date arg1, TimeInterval arg2, bool isPlus)
         {
             int year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0;

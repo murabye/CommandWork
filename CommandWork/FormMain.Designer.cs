@@ -29,35 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.doAction = new System.Windows.Forms.Button();
+            this.days1 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.months1 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.action = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox7 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox8 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox9 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox10 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox11 = new System.Windows.Forms.MaskedTextBox();
+            this.entry1_2 = new System.Windows.Forms.MaskedTextBox();
+            this.entry2_2 = new System.Windows.Forms.MaskedTextBox();
+            this.year2 = new System.Windows.Forms.MaskedTextBox();
+            this.hour2 = new System.Windows.Forms.MaskedTextBox();
+            this.minutes2 = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.maskedTextBox12 = new System.Windows.Forms.MaskedTextBox();
+            this.seconds2 = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.maskedTextBox6 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox5 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.seconds1 = new System.Windows.Forms.MaskedTextBox();
+            this.minutes1 = new System.Windows.Forms.MaskedTextBox();
+            this.hour1 = new System.Windows.Forms.MaskedTextBox();
+            this.year1 = new System.Windows.Forms.MaskedTextBox();
+            this.entry2_1 = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.entry1_1 = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -66,26 +66,26 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
-            // button1
+            // doAction
             // 
-            this.button1.Enabled = false;
-            this.button1.Location = new System.Drawing.Point(210, 207);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 103;
-            this.button1.Text = "Посчитать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.doAction.Enabled = false;
+            this.doAction.Location = new System.Drawing.Point(210, 207);
+            this.doAction.Name = "doAction";
+            this.doAction.Size = new System.Drawing.Size(75, 23);
+            this.doAction.TabIndex = 103;
+            this.doAction.Text = "Посчитать";
+            this.doAction.UseVisualStyleBackColor = true;
+            this.doAction.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox2
+            // days1
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(195, 181);
-            this.textBox2.MaxLength = 10;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(63, 20);
-            this.textBox2.TabIndex = 102;
-            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.days1.Enabled = false;
+            this.days1.Location = new System.Drawing.Point(195, 181);
+            this.days1.MaxLength = 30000000;
+            this.days1.Name = "days1";
+            this.days1.Size = new System.Drawing.Size(63, 20);
+            this.days1.TabIndex = 102;
+            this.days1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label16
             // 
@@ -96,15 +96,15 @@
             this.label16.TabIndex = 101;
             this.label16.Text = "Дни:";
             // 
-            // textBox1
+            // months1
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(69, 181);
-            this.textBox1.MaxLength = 10;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(63, 20);
-            this.textBox1.TabIndex = 100;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
+            this.months1.Enabled = false;
+            this.months1.Location = new System.Drawing.Point(69, 181);
+            this.months1.MaxLength = 30000000;
+            this.months1.Name = "months1";
+            this.months1.Size = new System.Drawing.Size(63, 20);
+            this.months1.TabIndex = 100;
+            this.months1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_KeyPress);
             // 
             // label15
             // 
@@ -124,22 +124,22 @@
             this.label14.TabIndex = 98;
             this.label14.Text = "Введите месяцы/дни:";
             // 
-            // comboBox1
+            // action
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Enabled = false;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.action.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.action.Enabled = false;
+            this.action.FormattingEnabled = true;
+            this.action.Items.AddRange(new object[] {
             "Вычитание даты и месяцев",
             "Сложение даты и месяцев",
             "Вычитание даты и дней",
             "Сложение даты и дней",
             "Вычитание дат"});
-            this.comboBox1.Location = new System.Drawing.Point(15, 66);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 21);
-            this.comboBox1.TabIndex = 97;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.action.Location = new System.Drawing.Point(15, 66);
+            this.action.Name = "action";
+            this.action.Size = new System.Drawing.Size(260, 21);
+            this.action.TabIndex = 110;
+            this.action.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label13
             // 
@@ -168,60 +168,60 @@
             this.label9.TabIndex = 94;
             this.label9.Text = ".";
             // 
-            // maskedTextBox7
+            // entry1_2
             // 
-            this.maskedTextBox7.Enabled = false;
-            this.maskedTextBox7.Location = new System.Drawing.Point(28, 140);
-            this.maskedTextBox7.Mask = "00";
-            this.maskedTextBox7.Name = "maskedTextBox7";
-            this.maskedTextBox7.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox7.TabIndex = 93;
-            this.maskedTextBox7.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox7.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.entry1_2.Enabled = false;
+            this.entry1_2.Location = new System.Drawing.Point(28, 140);
+            this.entry1_2.Mask = "00";
+            this.entry1_2.Name = "entry1_2";
+            this.entry1_2.Size = new System.Drawing.Size(21, 20);
+            this.entry1_2.TabIndex = 86;
+            this.entry1_2.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.entry1_2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox8
+            // entry2_2
             // 
-            this.maskedTextBox8.Enabled = false;
-            this.maskedTextBox8.Location = new System.Drawing.Point(71, 140);
-            this.maskedTextBox8.Mask = "00";
-            this.maskedTextBox8.Name = "maskedTextBox8";
-            this.maskedTextBox8.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox8.TabIndex = 92;
-            this.maskedTextBox8.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox8.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.entry2_2.Enabled = false;
+            this.entry2_2.Location = new System.Drawing.Point(71, 140);
+            this.entry2_2.Mask = "00";
+            this.entry2_2.Name = "entry2_2";
+            this.entry2_2.Size = new System.Drawing.Size(21, 20);
+            this.entry2_2.TabIndex = 87;
+            this.entry2_2.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.entry2_2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox9
+            // year2
             // 
-            this.maskedTextBox9.Enabled = false;
-            this.maskedTextBox9.Location = new System.Drawing.Point(114, 140);
-            this.maskedTextBox9.Mask = "0000";
-            this.maskedTextBox9.Name = "maskedTextBox9";
-            this.maskedTextBox9.Size = new System.Drawing.Size(28, 20);
-            this.maskedTextBox9.TabIndex = 91;
-            this.maskedTextBox9.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox9.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.year2.Enabled = false;
+            this.year2.Location = new System.Drawing.Point(114, 140);
+            this.year2.Mask = "0000";
+            this.year2.Name = "year2";
+            this.year2.Size = new System.Drawing.Size(28, 20);
+            this.year2.TabIndex = 88;
+            this.year2.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.year2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox10
+            // hour2
             // 
-            this.maskedTextBox10.Enabled = false;
-            this.maskedTextBox10.Location = new System.Drawing.Point(168, 140);
-            this.maskedTextBox10.Mask = "00";
-            this.maskedTextBox10.Name = "maskedTextBox10";
-            this.maskedTextBox10.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox10.TabIndex = 90;
-            this.maskedTextBox10.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox10.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.hour2.Enabled = false;
+            this.hour2.Location = new System.Drawing.Point(168, 140);
+            this.hour2.Mask = "00";
+            this.hour2.Name = "hour2";
+            this.hour2.Size = new System.Drawing.Size(21, 20);
+            this.hour2.TabIndex = 89;
+            this.hour2.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.hour2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox11
+            // minutes2
             // 
-            this.maskedTextBox11.Enabled = false;
-            this.maskedTextBox11.Location = new System.Drawing.Point(211, 140);
-            this.maskedTextBox11.Mask = "00";
-            this.maskedTextBox11.Name = "maskedTextBox11";
-            this.maskedTextBox11.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox11.TabIndex = 89;
-            this.maskedTextBox11.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox11.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.minutes2.Enabled = false;
+            this.minutes2.Location = new System.Drawing.Point(211, 140);
+            this.minutes2.Mask = "00";
+            this.minutes2.Name = "minutes2";
+            this.minutes2.Size = new System.Drawing.Size(21, 20);
+            this.minutes2.TabIndex = 90;
+            this.minutes2.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.minutes2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label10
             // 
@@ -241,16 +241,16 @@
             this.label11.TabIndex = 87;
             this.label11.Text = ":";
             // 
-            // maskedTextBox12
+            // seconds2
             // 
-            this.maskedTextBox12.Enabled = false;
-            this.maskedTextBox12.Location = new System.Drawing.Point(254, 140);
-            this.maskedTextBox12.Mask = "00";
-            this.maskedTextBox12.Name = "maskedTextBox12";
-            this.maskedTextBox12.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox12.TabIndex = 86;
-            this.maskedTextBox12.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox12.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.seconds2.Enabled = false;
+            this.seconds2.Location = new System.Drawing.Point(254, 140);
+            this.seconds2.Mask = "00";
+            this.seconds2.Name = "seconds2";
+            this.seconds2.Size = new System.Drawing.Size(21, 20);
+            this.seconds2.TabIndex = 91;
+            this.seconds2.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.seconds2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label12
             // 
@@ -279,60 +279,60 @@
             this.label6.TabIndex = 83;
             this.label6.Text = ":";
             // 
-            // maskedTextBox6
+            // seconds1
             // 
-            this.maskedTextBox6.Enabled = false;
-            this.maskedTextBox6.Location = new System.Drawing.Point(254, 107);
-            this.maskedTextBox6.Mask = "00";
-            this.maskedTextBox6.Name = "maskedTextBox6";
-            this.maskedTextBox6.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox6.TabIndex = 82;
-            this.maskedTextBox6.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox6.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.seconds1.Enabled = false;
+            this.seconds1.Location = new System.Drawing.Point(254, 107);
+            this.seconds1.Mask = "00";
+            this.seconds1.Name = "seconds1";
+            this.seconds1.Size = new System.Drawing.Size(21, 20);
+            this.seconds1.TabIndex = 82;
+            this.seconds1.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.seconds1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox5
+            // minutes1
             // 
-            this.maskedTextBox5.Enabled = false;
-            this.maskedTextBox5.Location = new System.Drawing.Point(211, 107);
-            this.maskedTextBox5.Mask = "00";
-            this.maskedTextBox5.Name = "maskedTextBox5";
-            this.maskedTextBox5.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox5.TabIndex = 81;
-            this.maskedTextBox5.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox5.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.minutes1.Enabled = false;
+            this.minutes1.Location = new System.Drawing.Point(211, 107);
+            this.minutes1.Mask = "00";
+            this.minutes1.Name = "minutes1";
+            this.minutes1.Size = new System.Drawing.Size(21, 20);
+            this.minutes1.TabIndex = 81;
+            this.minutes1.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.minutes1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox4
+            // hour1
             // 
-            this.maskedTextBox4.Enabled = false;
-            this.maskedTextBox4.Location = new System.Drawing.Point(168, 107);
-            this.maskedTextBox4.Mask = "00";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox4.TabIndex = 80;
-            this.maskedTextBox4.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox4.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.hour1.Enabled = false;
+            this.hour1.Location = new System.Drawing.Point(168, 107);
+            this.hour1.Mask = "00";
+            this.hour1.Name = "hour1";
+            this.hour1.Size = new System.Drawing.Size(21, 20);
+            this.hour1.TabIndex = 80;
+            this.hour1.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.hour1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox3
+            // year1
             // 
-            this.maskedTextBox3.Enabled = false;
-            this.maskedTextBox3.Location = new System.Drawing.Point(114, 107);
-            this.maskedTextBox3.Mask = "0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(28, 20);
-            this.maskedTextBox3.TabIndex = 79;
-            this.maskedTextBox3.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox3.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.year1.Enabled = false;
+            this.year1.Location = new System.Drawing.Point(114, 107);
+            this.year1.Mask = "0000";
+            this.year1.Name = "year1";
+            this.year1.Size = new System.Drawing.Size(28, 20);
+            this.year1.TabIndex = 79;
+            this.year1.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.year1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
-            // maskedTextBox2
+            // entry2_1
             // 
-            this.maskedTextBox2.Enabled = false;
-            this.maskedTextBox2.Location = new System.Drawing.Point(71, 107);
-            this.maskedTextBox2.Mask = "00";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox2.TabIndex = 78;
-            this.maskedTextBox2.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox2.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.entry2_1.Enabled = false;
+            this.entry2_1.Location = new System.Drawing.Point(71, 107);
+            this.entry2_1.Mask = "00";
+            this.entry2_1.Name = "entry2_1";
+            this.entry2_1.Size = new System.Drawing.Size(21, 20);
+            this.entry2_1.TabIndex = 78;
+            this.entry2_1.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.entry2_1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label5
             // 
@@ -352,16 +352,16 @@
             this.label4.TabIndex = 76;
             this.label4.Text = ".";
             // 
-            // maskedTextBox1
+            // entry1_1
             // 
-            this.maskedTextBox1.Enabled = false;
-            this.maskedTextBox1.Location = new System.Drawing.Point(28, 107);
-            this.maskedTextBox1.Mask = "00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(21, 20);
-            this.maskedTextBox1.TabIndex = 75;
-            this.maskedTextBox1.Click += new System.EventHandler(this.maskedTextBox_Click);
-            this.maskedTextBox1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
+            this.entry1_1.Enabled = false;
+            this.entry1_1.Location = new System.Drawing.Point(28, 107);
+            this.entry1_1.Mask = "00";
+            this.entry1_1.Name = "entry1_1";
+            this.entry1_1.Size = new System.Drawing.Size(21, 20);
+            this.entry1_1.TabIndex = 75;
+            this.entry1_1.Click += new System.EventHandler(this.maskedTextBox_Click);
+            this.entry1_1.TextChanged += new System.EventHandler(this.maskedTextBox_TextChanged);
             // 
             // label3
             // 
@@ -419,35 +419,35 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(291, 234);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.doAction);
+            this.Controls.Add(this.days1);
             this.Controls.Add(this.label16);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.months1);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.action);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.maskedTextBox7);
-            this.Controls.Add(this.maskedTextBox8);
-            this.Controls.Add(this.maskedTextBox9);
-            this.Controls.Add(this.maskedTextBox10);
-            this.Controls.Add(this.maskedTextBox11);
+            this.Controls.Add(this.entry1_2);
+            this.Controls.Add(this.entry2_2);
+            this.Controls.Add(this.year2);
+            this.Controls.Add(this.hour2);
+            this.Controls.Add(this.minutes2);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.maskedTextBox12);
+            this.Controls.Add(this.seconds2);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.maskedTextBox6);
-            this.Controls.Add(this.maskedTextBox5);
-            this.Controls.Add(this.maskedTextBox4);
-            this.Controls.Add(this.maskedTextBox3);
-            this.Controls.Add(this.maskedTextBox2);
+            this.Controls.Add(this.seconds1);
+            this.Controls.Add(this.minutes1);
+            this.Controls.Add(this.hour1);
+            this.Controls.Add(this.year1);
+            this.Controls.Add(this.entry2_1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.entry1_1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioButton2);
@@ -462,35 +462,35 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button doAction;
+        private System.Windows.Forms.TextBox days1;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox months1;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox action;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox7;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox8;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox10;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox11;
+        private System.Windows.Forms.MaskedTextBox entry1_2;
+        private System.Windows.Forms.MaskedTextBox entry2_2;
+        private System.Windows.Forms.MaskedTextBox year2;
+        private System.Windows.Forms.MaskedTextBox hour2;
+        private System.Windows.Forms.MaskedTextBox minutes2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox12;
+        private System.Windows.Forms.MaskedTextBox seconds2;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox6;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox seconds1;
+        private System.Windows.Forms.MaskedTextBox minutes1;
+        private System.Windows.Forms.MaskedTextBox hour1;
+        private System.Windows.Forms.MaskedTextBox year1;
+        private System.Windows.Forms.MaskedTextBox entry2_1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox entry1_1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton radioButton2;
