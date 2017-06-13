@@ -14,141 +14,29 @@ namespace CommandWork
         // number в этой функции можно извлечь и кинуть Варе, но лучше ее спроси, в каком формате она это принимает для подсчета
         // кстати тебе скорее всего не понадобится isAmerican, потому что массивы с датами я кидаю в одинаковом русском формате 
         // если будешь убирать у себя это - скажи мне
-        public static bool CheckDate(string[] date, bool isAmerican) // тут проверить на 30 февраля
+        public static bool CheckDate(string[] date, bool isAmerican) // Проверка на 30 февраля
         {
-            ulong days, months, years; // days - дни, months - месяцы, years - года
-            bool leapYear = false; // Високосность года
+            ulong months, years; // months - месяцы, years - года
 
-            if (CheckNumber(date[2], 1583, 9999)) // Проверка года на соответствие промежутку и типу Int
+            if (CheckNumber(date[2], Date.MinYear, Date.MaxYear)) // Проверка года на соответствие промежутку и типу Int
             {
                 years = ulong.Parse(date[2]);
-                if ((years % 4) == 0) leapYear = true; // Проверка на високосность года
             }
             else return false;
 
-            if (CheckNumber(date[1], 1, 12)) // Проверка месяца на соответствие промежутку и типу Int
+            if (CheckNumber(date[1], Date.MinMonth, Date.MaxMonth)) // Проверка месяца на соответствие промежутку и типу Int
             {
                 months = ulong.Parse(date[1]);
             }
             else return false;
 
-            switch (months) // Проверка дней на соответствие промежутку и типу Int
-            {
-                case 1: 
-                    if (CheckNumber(date[0], 1, 31))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
+            if (!CheckNumber(date[0], Date.MinDay, (uint)Date.DaysInMonth((int)months, (int)years))) return false; // Проверка дней на соответствие промежутку и типу Int
 
-                case 2:
-                    if (!leapYear && CheckNumber(date[0], 1, 28))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else if (leapYear && CheckNumber(date[0], 1, 29))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
+            if (!CheckNumber(date[3], Date.MinTime, Date.MaxHours)) return false; // Проверка часов на соответствие промежутку и типу Int
 
-                case 3:
-                    if (CheckNumber(date[0], 1, 31))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
+            if (!CheckNumber(date[4], Date.MinTime, Date.MaxTime)) return false; // Проверка минут на соответствие промежутку и типу Int
 
-                case 4:
-                    if (CheckNumber(date[0], 1, 30))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 5:
-                    if (CheckNumber(date[0], 1, 31))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 6:
-                    if (CheckNumber(date[0], 1, 30))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 7:
-                    if (CheckNumber(date[0], 1, 31))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 8:
-                    if (CheckNumber(date[0], 1, 31))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 9:
-                    if (CheckNumber(date[0], 1, 30))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 10:
-                    if (CheckNumber(date[0], 1, 31))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 11:
-                    if (CheckNumber(date[0], 1, 30))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-
-                case 12:
-                    if (CheckNumber(date[0], 1, 31))
-                    {
-                        days = ulong.Parse(date[0]);
-                    }
-                    else return false;
-                    break;
-            }
-
-            if (!CheckNumber(date[3], 0, 23)) // Проверка часов на соответствие промежутку и типу Int
-            {
-                return false;
-            }
-
-            if (!CheckNumber(date[4], 0, 59)) // Проверка минут на соответствие промежутку и типу Int
-            {
-                return false;
-            }
-
-            if (!CheckNumber(date[5], 0, 59)) // Проверка секунд на соответствие промежутку и типу Int
-            {
-                return false;
-            }
+            if (!CheckNumber(date[5], Date.MinTime, Date.MaxTime)) return false; // Проверка секунд на соответствие промежутку и типу Int
 
             return true;
         }

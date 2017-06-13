@@ -17,6 +17,7 @@ namespace CommandWork
         public const int MinMonth = 1;
         public const int MaxMonth = 12;
         public const int MinDay = 1;
+        public const int MaxHours = 23;
 
         // свойства, доступные только изнутри
         private int month;                           // месяц даты
