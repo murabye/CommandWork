@@ -79,7 +79,7 @@ namespace CommandWork
 
             // Создаем элементы типа Date
             Date pushData1 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
-            Date pushData2 = new Date(data1_Day, data1_Month, data1_Year, data1_Hours, data1_Minutes, data1_Seconds);
+            Date pushData2 = new Date(data2_Day, data2_Month, data2_Year, data2_Hours, data2_Minutes, data2_Seconds);
 
             // Отправляем решать 
             Data.Push(pushData1, pushData2);
