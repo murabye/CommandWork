@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CommandWork
 {
-    public class Date
+    public class Date : IComparable
     {
         // ограничители, то есть минимальные и максимальные значения типов
         // для ограничения количества дней в отдельном месяце встроенная функция
@@ -121,5 +121,29 @@ namespace CommandWork
                    " " + Hour + ":" + Minute + ":" + Second;   // время
 
         }           // обычно ToString возвращает российский формат
+
+        public int CompareTo(object ob)
+        {
+            Date comp = (Date) ob;
+
+            int year = Year.CompareTo(comp.Year);
+            int month = Month.CompareTo(comp.Month);
+            int day = Day.CompareTo(comp.Day);
+            int hour = Hour.CompareTo(comp.Hour);
+            int minute = Minute.CompareTo(comp.Minute);
+            int second = Second.CompareTo(comp.Second);
+
+            if (year == 0 && month == 0 && day == 0 && hour == 0 && minute == 0 && second == 0)
+                return 0;
+
+            if (year != 0) return year;
+            if (month != 0) return year;
+            if (day != 0) return year;
+            if (hour != 0) return year;
+            if (minute != 0) return year;
+            if (second != 0) return year;
+            
+            return 1;
+        } 
     }
 }
