@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Drawing;
 using System.Windows.Forms;
 using CommandWork.Properties;
@@ -11,6 +12,8 @@ namespace CommandWork
         public static bool IsAmerican; // переменная для формата даты
         public static string[] Date = new string[6], Date2 = new string[6]; // основная дата и дата для промежутка
         public static string Months, Days;
+
+        public static string Data, Data2; 
 
         public FormMain()
         {
@@ -193,8 +196,6 @@ namespace CommandWork
             days1.Clear();
         }
 
-        
-
         public bool Check(bool isAmerican) // проверка корректности ввода
         {
             if (!isAmerican)
@@ -211,6 +212,11 @@ namespace CommandWork
             Date[3] = hour1.Text;
             Date[4] = minutes1.Text;
             Date[5] = seconds1.Text;
+
+            if (!isAmerican)
+                Data = Date[0] + "." + Date[1] + "." + Date[2] + "." + Date[3] + "." + Date[4] + "." + Date[5];
+            else Data = Date[0] + "-" + Date[1] + "-" + Date[2] + "-" + Date[3] + "-" + Date[4] + "-" + Date[5];
+
             switch (Index)
             {
                 case 0:
@@ -238,6 +244,11 @@ namespace CommandWork
                     Date2[3] = hour2.Text;
                     Date2[4] = minutes2.Text;
                     Date2[5] = seconds2.Text;
+
+                    if (!isAmerican)
+                        Data2 = Date2[0] + "." + Date2[1] + "." + Date2[2] + "." + Date2[3] + "." + Date2[4] + "." + Date2[5];
+                    else Data2 = Date2[0] + "-" + Date2[1] + "-" + Date2[2] + "-" + Date2[3] + "-" + Date2[4] + "-" + Date2[5];
+
                     doAction.Enabled = Calc.CheckDate(Date2) && Calc.CheckDate(Date);
                     return doAction.Enabled;
             }
@@ -248,6 +259,12 @@ namespace CommandWork
             FormAns f2 = new FormAns(IsAmerican);
             f2.Owner = this;
             f2.ShowDialog();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            FormProto pr = new FormProto();
+            pr.ShowDialog();
         }
 
         #endregion

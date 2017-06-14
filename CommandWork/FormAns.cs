@@ -21,6 +21,7 @@ namespace CommandWork
         private static TimeInterval Answer2;
         private static bool exc;
         public static string ExcInfo;
+        private static Protocol proto = new Protocol();
         public FormAns(bool status)
         {
             InitializeComponent();
@@ -71,23 +72,57 @@ namespace CommandWork
                 comboBox1.Items.Clear();
             }
             textBox1.Text = Result;
+
+            string input = "";
+            switch (FormMain.Index)
+            {
+                case 0:
+                    input = FormMain.Data + "-" + FormMain.Months + "Месяцев";
+                    break;
+                case 1:
+                    input = FormMain.Data + "+" + FormMain.Months + "Месяцев";
+                    break;
+                case 2:
+                    input = FormMain.Data + "-" + FormMain.Days + "Дней";
+                    break;
+                case 3:
+                    input = FormMain.Data + "+" + FormMain.Days + "Дней";
+                    break;
+                case 4:
+                    input = FormMain.Data + "-" + FormMain.Data2;
+                    break;
+            }
+
+            List<Pair> cur = proto.Operations;
+            proto = new Protocol(input);
+
+            foreach (var p in cur)
+            {
+                proto.AddOperation(p.Operation, p.Result);
+            }
+
         }
 
         public static void Push(Date ans)
         {
             Result = !IsAmerican ? ans.ToString() : ans.ToAmerican();
             Answer = ans;
+            
+            proto.AddOperation("Вычисление", ans.ToString());
+
             exc = false;
         }
 
         public static void Push(TimeInterval ans)
         {
             Answer2 = ans;
+            proto.AddOperation("Вычисление", ans.ToString());
             exc = false;
         }
 
         public static void Push(string exception)
         {
+            proto.AddOperation("Вычисление", exception);
             ExcInfo = exception;
             exc = true;
         }
@@ -103,24 +138,36 @@ namespace CommandWork
                 {
                     case 0:
                         Result = Answer2.TotalDays.ToString();
+                        proto.AddOperation("Перевод в дни", Result);
                         break;
                     case 1:
                         Result = Answer2.TotalWeeks.ToString();
+                        proto.AddOperation("Перевод в недели", Result);
                         break;
                     case 2:
                         Result = Answer2.TotalMonths.ToString();
+                        proto.AddOperation("Перевод в месяцы", Result);
                         break;
                     case 3:
                         Result = Answer2.TotalHours.ToString();
+                        proto.AddOperation("Перевод в часы", Result);
                         break;
                     case 4:
                         Result = Answer2.TotalMinutes.ToString();
+                        proto.AddOperation("Перевод в минуты", Result);
                         break;
                     case 5:
                         Result = Answer2.TotalSecond.ToString();
+                        proto.AddOperation("Перевод в секунды", Result);
                         break;
                 }
             textBox1.Text = Result;
+        }
+
+        private void FormAns_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            proto.Finish();
+            proto.ClearOperation();
         }
     }
 }

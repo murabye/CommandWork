@@ -64,6 +64,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // doAction
@@ -416,11 +417,22 @@
             this.label1.TabIndex = 70;
             this.label1.Text = "Выберите формат даты:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 206);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 111;
+            this.button1.Text = "Протокол";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(291, 234);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.doAction);
             this.Controls.Add(this.days1);
             this.Controls.Add(this.label16);
@@ -501,6 +513,7 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

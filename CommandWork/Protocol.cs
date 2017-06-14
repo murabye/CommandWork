@@ -20,12 +20,20 @@ namespace CommandWork
         public List<Pair> Operations { get { return _operations; } }    // коллекция сделанного
 
         // конструктор
-        public Protocol(string path, string input)
+        public Protocol(string input)
         {
             // чистый протокол
-            _path = path;
+            _path = "proto.txt";
             _input = input;
             _operations = new List<Pair>();
+            //new FileStream(_path, FileMode.Create).Close();
+        }
+        public Protocol()
+        {
+            _path = "proto.txt";
+            _input = "";
+            _operations = new List<Pair>();
+            //new FileStream(_path, FileMode.Create).Close();
         }
 
         // добавление операции или ошибки (аналогично добавлению операции, просто результат ошибка)
@@ -34,6 +42,10 @@ namespace CommandWork
             _operations.Add(new Pair(op, result));
         }
 
+        public void ClearOperation()
+        {
+            _operations = new List<Pair>();
+        }
         // запись в файл
         public void Finish()
         {
@@ -56,6 +68,7 @@ namespace CommandWork
             foreach (var op in _operations)
                 flow.WriteLine(op.Operation + '-' + op.Result);
             flow.WriteLine("Конец записи.");
+            flow.Close();
 
         }
 
@@ -84,13 +97,16 @@ namespace CommandWork
                 if (line == "Начало записи:")
                 {
                     var input = flow.ReadLine();
-                    var cur = new Protocol(path, input);
-                    flow.ReadLine();
+                    var cur = new Protocol(input);
+                    line = flow.ReadLine();
+                    line = flow.ReadLine();
+
                     while (line != "Конец записи.")
                     {
-                        line = flow.ReadLine();
+                        
                         var args = line.Split('-');
                         cur.AddOperation(args[0], args[1]);
+                        line = flow.ReadLine();
                     }
                     ans.Add(cur);
                 }
@@ -98,7 +114,7 @@ namespace CommandWork
             }
 
 
-
+            flow.Close();
             return ans;
         }
     }
@@ -113,6 +129,11 @@ namespace CommandWork
         {
             Operation = operation;
             Result = result;
+        }
+
+        public override string ToString()
+        {
+            return Operation + " - " + Result;
         }
     }
 }

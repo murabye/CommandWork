@@ -137,11 +137,11 @@ namespace CommandWork
                 return 0;
 
             if (year != 0) return year;
-            if (month != 0) return year;
-            if (day != 0) return year;
-            if (hour != 0) return year;
-            if (minute != 0) return year;
-            if (second != 0) return year;
+            if (month != 0) return month;
+            if (day != 0) return day;
+            if (hour != 0) return hour;
+            if (minute != 0) return minute;
+            if (second != 0) return second;
             
             return 1;
         } 

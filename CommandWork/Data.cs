@@ -18,7 +18,7 @@ namespace CommandWork
             ulong minuteDiff = (ulong)(arg1.Minute - arg2.Minute);
             ulong secondDiff = (ulong)(arg1.Second - arg2.Second);
 
-            if (arg1.CompareTo(arg2) == 1)
+            if (arg1.CompareTo(arg2) == -1)
             {
                 FormAns.Push("Попытка вычитания большей даты из меньшей");
                 return;

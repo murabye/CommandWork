@@ -89,6 +89,7 @@ namespace CommandWork
             this.MaximizeBox = false;
             this.Name = "FormAns";
             this.Text = "Результат";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormAns_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
